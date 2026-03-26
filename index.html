@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MAPA Bakery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Basic security/trust meta -->
+  <meta name="description" content="Order fresh cakes and pastries from MAPA Bakery." />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" />
+  <style>
+    :root {
+      --primary: #c96b7b;
+      --primary-dark: #a55262;
+      --accent: #ffe7ec;
+      --bg: #fff9f7;
+      --text: #333;
+      --radius: 10px;
+      --shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+    }
+
+    .nav-links a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(201,107,123,0.4);
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-dark);
+    }
+
+    .hero-text p {
+      margin-bottom: 1.2rem;
+      font-size: 0.98rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .badge {
+      background: var(--accent);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+
+    .hero-image {
+      background: linear-gradient(135deg, #ffe7ec, #fff);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .hero-image-inner {
+      border-radius: 16px;
+      background: #fff;
+      padding: 1.5rem;
+      border: 2px dashed #f3c1cc;
+    }
+
+    .hero-image h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .hero-image p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-image small {
+      display: block;
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-dark);
+    }
+
+    section p.section-intro {
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      color: #555;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-img {
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+    }
+
+    .gallery-content {
+      padding: 0.8rem 0.9rem 1rem;
+    }
+
+    .gallery-content h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery-content p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Order & Auth layout */
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.2rem 1.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary-dark);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      color: #555;
+    }
+
+    form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .inline {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .inline > * {
+      flex: 1;
+    }
+
+    .trust-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .trust-list li::before {
+      content: "✔";
+      color: var(--primary);
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .notice {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 0.4rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    footer a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .status {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .status.success {
+      color: #1b8a4b;
+    }
+
+    .status.error {
+      color: #b3261e;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">MAPA Bakery</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#order">Order</a>
+        <a href="#login">Login</a>
+        <a href="#trust">Security</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Freshly Baked Happiness, Delivered.</h1>
+        <p>
+          Custom cakes, cupcakes, and pastries baked with love. Order online as a guest or create an account to track your favourites.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">Secure checkout</span>
+          <span class="badge">Fresh daily</span>
+          <span class="badge">Custom designs</span>
+        </div>
+        <button class="btn-primary" onclick="scrollToSection('order')">Order Now</button>
+      </div>
+      <div class="hero-image">
+        <div class="hero-image-inner">
+          <h2>Today’s Special</h2>
+          <p>Belgian Chocolate Truffle Cake</p>
+          <small>Perfect for birthdays, anniversaries, and celebrations.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <p class="section-intro">
+        A peek into some of our favourite creations. We also take fully custom orders.
+      </p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+          <div class="gallery-content">
+            <h3>Birthday Cakes</h3>
+            <p>From minimal to themed designs, tailored to your celebration.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/2915289/pexels-photo-2915289.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+          <div class="gallery-content">
+            <h3>Cupcakes</h3>
+            <p>Perfect bite-sized treats for parties and office events.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/1026124/pexels-photo-1026124.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+          <div class="gallery-content">
+            <h3>Wedding Cakes</h3>
+            <p>Elegant, layered designs crafted for your big day.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/2915286/pexels-photo-2915286.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+          <div class="gallery-content">
+            <h3>Seasonal Specials</h3>
+            <p>Limited-time flavours inspired by the season.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order + Guest Checkout -->
+    <section id="order">
+      <h2>Place an Order</h2>
+      <p class="section-intro">
+        You can order as a guest or log in for a faster checkout and order history.
+      </p>
+      <div class="two-column">
+        <!-- Guest order -->
+        <div class="card">
+          <h3>Guest Checkout</h3>
+          <p>No account needed. Just fill in your details and we’ll confirm your order.</p>
+          <form id="guestOrderForm">
+            <div class="inline">
+              <div>
+                <label for="guestName">Full Name</label>
+                <input type="text" id="guestName" name="guestName" required />
+              </div>
+              <div>
+                <label for="guestPhone">Phone</label>
+                <input type="tel" id="guestPhone" name="guestPhone" required />
+              </div>
+            </div>
+
+            <label for="guestEmail">Email (for confirmation)</label>
+            <input type="email" id="guestEmail" name="guestEmail" required />
+
+            <label for="item">Select Item</label>
+            <select id="item" name="item" required>
+              <option value="">Choose an item</option>
+              <option value="chocolate_truffle">Chocolate Truffle Cake</option>
+              <option value="red_velvet">Red Velvet Cake</option>
+              <option value="cupcake_box">Assorted Cupcake Box (12)</option>
+              <option value="custom">Custom Design (we’ll contact you)</option>
+            </select>
+
+            <div class="inline">
+              <div>
+                <label for="size">Size</label>
+                <select id="size" name="size" required>
+                  <option value="">Select size</option>
+                  <option value="0.5kg">0.5 kg</option>
+                  <option value="1kg">1 kg</option>
+                  <option value="2kg">2 kg</option>
+                </select>
+              </div>
+              <div>
+                <label for="date">Pickup/Delivery Date</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+            </div>
+
+            <label for="notes">Notes (message on cake, allergies, etc.)</label>
+            <textarea id="notes" name="notes" placeholder="E.g., Happy Birthday Aanya, no nuts."></textarea>
+
+            <button type="submit" class="btn-primary">Review &amp; Confirm</button>
+            <div id="guestOrderStatus" class="status"></div>
+          </form>
+        </div>
+
+        <!-- Login / Account -->
+        <div class="card" id="login">
+          <h3>Login</h3>
+          <p>Log in to view your saved details and past orders.</p>
+          <form id="loginForm">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="loginEmail" required />
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="loginPassword" required />
+
+            <button type="submit" class="btn-primary">Login</button>
+            <div id="loginStatus" class="status"></div>
+          </form>
+
+          <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;" />
+
+          <h3>Create an Account</h3>
+          <p>Save your details for faster checkout next time.</p>
+          <form id="signupForm">
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" name="signupName" required />
+
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="signupEmail" required />
+
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="signupPassword" required />
+
+            <button type="submit" class="btn-primary">Sign Up</button>
+            <div id="signupStatus" class="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security / Trust -->
+    <section id="trust">
+      <h2>Security &amp; Trust</h2>
+      <p class="section-intro">
+        We take your privacy and payment security seriously so you can order with confidence.
+      </p>
+      <div class="two-column">
+        <div class="card">
+          <h3>How we keep your data safe</h3>
+          <ul class="trust-list">
+            <li>All orders are processed over secure, encrypted HTTPS connections.</li>
+            <li>Payments are handled by trusted providers (e.g., Stripe, PayPal) — we never store card details.</li>
+            <li>Passwords are stored using industry-standard hashing on our servers.</li>
+            <li>We only collect the minimum information needed to fulfil your order.</li>
+          </ul>
+          <p class="notice">
+            This is a demo site. In production, connect these forms to a secure backend and payment gateway.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Contact &amp; Policies</h3>
+          <p>
+            Have questions about an order, custom design, or allergies? Reach out and we’ll respond quickly.
+          </p>
+          <p style="font-size:0.9rem;">
+            <strong>Email:</strong> hello@sweetcrumbsbakery.com<br />
+            <strong>Phone:</strong> +44 0000 000000<br />
+            <strong>Location:</strong> Your City, Your Country
+          </p>
+          <p class="notice">
+            Add links here to your real Terms &amp; Conditions, Privacy Policy, and Refund Policy pages.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> MAPA Bakery. All rights reserved.
+    <br />
+    Built with love and secure-by-design principles.
+  </footer>
+
+  <script>
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple front-end form handlers (demo only)
+    const guestOrderForm = document.getElementById("guestOrderForm");
+    const guestOrderStatus = document.getElementById("guestOrderStatus");
+
+    guestOrderForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(guestOrderForm);
+      const name = formData.get("guestName");
+      const item = formData.get("item");
+      const date = formData.get("date");
+
+      if (!name || !item || !date) {
+        guestOrderStatus.textContent = "Please fill in all required fields.";
+        guestOrderStatus.className = "status error";
+        return;
+      }
+
+      // In production, send to backend via fetch()
+      guestOrderStatus.textContent =
+        "Order received! We’ll email you a secure payment link shortly.";
+      guestOrderStatus.className = "status success";
+      guestOrderForm.reset();
+    });
+
+    const loginForm = document.getElementById("loginForm");
+    const loginStatus = document.getElementById("loginStatus");
+
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(loginForm);
+      const email = formData.get("loginEmail");
+      const password = formData.get("loginPassword");
+
+      if (!email || !password) {
+        loginStatus.textContent = "Please enter your email and password.";
+        loginStatus.className = "status error";
+        return;
+      }
+
+      // Demo only
+      loginStatus.textContent =
+        "Demo login only. Connect this form to your authentication backend.";
+      loginStatus.className = "status success";
+    });
+
+    const signupForm = document.getElementById("signupForm");
+    const signupStatus = document.getElementById("signupStatus");
+
+    signupForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(signupForm);
+      const name = formData.get("signupName");
+      const email = formData.get("signupEmail");
+      const password = formData.get("signupPassword");
+
+      if (!name || !email || !password) {
+        signupStatus.textContent = "Please fill in all fields.";
+        signupStatus.className = "status error";
+        return;
+      }
+
+      // Demo only
+      signupStatus.textContent =
+        "Account created (demo). In production, securely store hashed passwords on the server.";
+      signupStatus.className = "status success";
+      signupForm.reset();
+    });
+  </script>
+</body>
+</html>
