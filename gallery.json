@@ -3,5 +3,10 @@
     "title": "Chocolate Truffle Cake",
     "description": "Rich Belgian chocolate with ganache.",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1234567890/sample.jpg"
+  },
+  {
+    "title": "Birthday",
+    "description": "Delicious cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg"
   }
 ]
