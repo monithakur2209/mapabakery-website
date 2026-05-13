@@ -375,7 +375,6 @@
       const items = await res.json();
       const grid = document.getElementById('galleryGrid');
       grid.innerHTML = '';
-
       items.forEach(item => {
         const div = document.createElement('div');
         div.className = 'gallery-item';
@@ -427,9 +426,11 @@
             <label for="item">Select Item</label>
             <select id="item" name="item" required>
               <option value="">Choose an item</option>
-              <option value="chocolate_truffle">Chocolate Truffle Cake</option>
-              <option value="red_velvet">Red Velvet Cake</option>
+              <option value="chocolate_cake">Chocolate Cake</option>
+              <option value="vanilla_cake">Vanilla Cake</option>
+              <option value="butterscotch_cake">Butterscotch Cake</option>
               <option value="cupcake_box">Assorted Cupcake Box (12)</option>
+              <option value="cupcake_box">Assorted Cupcake Box (6)</option>
               <option value="custom">Custom Design (we’ll contact you)</option>
             </select>
 
@@ -504,7 +505,7 @@
           <h3>How we keep your data safe</h3>
           <ul class="trust-list">
             <li>All orders are processed over secure, encrypted HTTPS connections.</li>
-            <li>Payments are handled by trusted providers (e.g., Stripe, PayPal) — we never store card details.</li>
+            <li>Payments are handled by PayPal — we never store card details.</li>
             <li>Passwords are stored using industry-standard hashing on our servers.</li>
             <li>We only collect the minimum information needed to fulfil your order.</li>
           </ul>
@@ -518,9 +519,9 @@
             Have questions about an order, custom design, or allergies? Reach out and we’ll respond quickly.
           </p>
           <p style="font-size:0.9rem;">
-            <strong>Email:</strong> hello@sweetcrumbsbakery.com<br />
-            <strong>Phone:</strong> +44 0000 000000<br />
-            <strong>Location:</strong> Your City, Your Country
+            <strong>Email:</strong> order.mapabakery@gmail.com<br />
+            <strong>Phone:</strong> +44 7405 277291<br />
+            <strong>Location:</strong> Port Talbot, Wales, UK
           </p>
           <p class="notice">
             Add links here to your real Terms &amp; Conditions, Privacy Policy, and Refund Policy pages.
