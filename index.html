@@ -365,42 +365,45 @@
     </section>
 
     <!-- Gallery -->
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <p class="section-intro">
-        A peek into some of our favourite creations. We also take fully custom orders.
-      </p>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+<section id="gallery">
+  <h2>Gallery</h2>
+  <p class="section-intro">
+    A peek into some of our favourite creations. We also take fully custom orders.
+  </p>
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Items will be injected by JS -->
+  </div>
+</section>
+<script>
+  async function loadGallery() {
+    try {
+      const res = await fetch('gallery.json?_=' + Date.now());
+      if (!res.ok) throw new Error('Failed to load gallery');
+      const items = await res.json();
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '';
+
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.innerHTML = `
+          <div class="gallery-img" style="background-image:url('${item.image}');"></div>
           <div class="gallery-content">
-            <h3>Birthday Cakes</h3>
-            <p>From minimal to themed designs, tailored to your celebration.</p>
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
           </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/2915289/pexels-photo-2915289.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-          <div class="gallery-content">
-            <h3>Cupcakes</h3>
-            <p>Perfect bite-sized treats for parties and office events.</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/1026124/pexels-photo-1026124.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-          <div class="gallery-content">
-            <h3>Wedding Cakes</h3>
-            <p>Elegant, layered designs crafted for your big day.</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-img" style="background-image:url('https://images.pexels.com/photos/2915286/pexels-photo-2915286.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
-          <div class="gallery-content">
-            <h3>Seasonal Specials</h3>
-            <p>Limited-time flavours inspired by the season.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        `;
+        grid.appendChild(div);
+      });
+    } catch (e) {
+      console.error(e);
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '<p style="font-size:0.9rem;color:#777;">Unable to load gallery right now.</p>';
+    }
+  }
+
+  loadGallery();
+</script>
 
     <!-- Order + Guest Checkout -->
     <section id="order">
