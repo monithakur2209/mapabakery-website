@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>MAPA Bakery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Basic security/trust meta -->
   <meta name="description" content="Order fresh Cakes and Cupcakes from MAPA Bakery." />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" />
+
   <style>
     :root {
       --primary: #c96b7b;
@@ -18,11 +18,7 @@
       --shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Poppins", sans-serif;
@@ -62,27 +58,7 @@
       font-weight: 500;
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1.1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.95rem;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(201,107,123,0.4);
-      transition: background 0.2s ease, transform 0.1s ease;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-    }
+    .nav-links a:hover { color: var(--primary); }
 
     main {
       max-width: 1100px;
@@ -93,10 +69,11 @@
     /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-columns: 1fr;
       gap: 2rem;
       align-items: center;
       margin-top: 1.5rem;
+      text-align: center;
     }
 
     .hero-text h1 {
@@ -106,73 +83,22 @@
     }
 
     .hero-text p {
-      margin-bottom: 1.2rem;
-      font-size: 0.98rem;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .badge {
-      background: var(--accent);
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--primary-dark);
-    }
-
-    .hero-image {
-      background: linear-gradient(135deg, #ffe7ec, #fff);
-      border-radius: 20px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
+      width: 100%;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: #5a4636;
+      line-height: 1.8;
       text-align: center;
+      max-width: 100%;
+      margin-top: 1rem;
     }
 
-    .hero-image-inner {
-      border-radius: 16px;
-      background: #fff;
-      padding: 1.5rem;
-      border: 2px dashed #f3c1cc;
-    }
-
-    .hero-image h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary-dark);
-    }
-
-    .hero-image p {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-image small {
-      display: block;
-      font-size: 0.75rem;
-      color: #777;
-    }
-
-    /* Sections */
-    section {
-      margin-top: 3rem;
-    }
-
-    section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-      color: var(--primary-dark);
-    }
-
-    section p.section-intro {
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-      color: #555;
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        text-align: left;
+      }
+      .hero-text p { text-align: left; }
     }
 
     /* Gallery */
@@ -270,24 +196,13 @@
       flex: 1;
     }
 
-    .trust-list {
-      list-style: none;
+    .status {
+      margin-top: 0.5rem;
       font-size: 0.85rem;
-      color: #555;
     }
 
-    .trust-list li::before {
-      content: "✔";
-      color: var(--primary);
-      margin-right: 0.4rem;
-      font-size: 0.8rem;
-    }
-
-    .notice {
-      font-size: 0.8rem;
-      color: #777;
-      margin-top: 0.4rem;
-    }
+    .status.success { color: #1b8a4b; }
+    .status.error { color: #b3261e; }
 
     footer {
       margin-top: 3rem;
@@ -296,120 +211,94 @@
       font-size: 0.8rem;
       color: #777;
     }
-
-    footer a {
-      color: var(--primary-dark);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .status {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-    }
-
-    .status.success {
-      color: #1b8a4b;
-    }
-
-    .status.error {
-      color: #b3261e;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
+
 <body>
+
   <header>
     <div class="nav">
       <div class="logo">MAPA Bakery</div>
       <nav class="nav-links">
         <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
         <a href="#order">Order</a>
         <a href="#login">Login</a>
-        <a href="#trust">Security</a>
+        <a href="#gallery">Gallery</a>
       </nav>
     </div>
   </header>
 
   <main>
+
     <!-- Hero -->
     <section id="home" class="hero">
       <div class="hero-text">
         <h1>Bites of Happiness, Delivered.</h1>
-       <p style="
-    width: 100%;
-    font-style: italic;
-    font-size: 1.4rem;
-    color: #5a4636; 
-    line-height: 1.8;
-    text-align: center;
-    max-width: 100%;
-    ">
+
+        <p>
           At MAPA Bakery, we craft Cakes that delight both the eye and the taste buds. Choose from egg or eggless options, custom designs, and beautifully decorated creations made with fresh cream and your preferred sponge. Order online as a guest or create an account to track your favourites. For picture-based decorations, kindly place your order at least one week in advance so we can prepare the design.
         </p>
+      </div>
     </section>
 
     <!-- Gallery -->
-<section id="gallery">
-  <h2>Gallery</h2>
-  <p class="section-intro">
-    A peek into some of our favourite creations. We also take fully custom orders.
-  </p>
-  <div class="gallery-grid" id="galleryGrid">
-    <!-- Items will be injected by JS -->
-  </div>
-</section>
-<script>
-  async function loadGallery() {
-    try {
-      const res = await fetch('gallery.json?_=' + Date.now());
-      if (!res.ok) throw new Error('Failed to load gallery');
-      const items = await res.json();
-      const grid = document.getElementById('galleryGrid');
-      grid.innerHTML = '';
-      items.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        div.innerHTML = `
-          <div class="gallery-img" style="background-image:url('${item.image}');"></div>
-          <div class="gallery-content">
-            <h3>${item.title}</h3>
-            <p>${item.description}</p>
-          </div>
-        `;
-        grid.appendChild(div);
-      });
-    } catch (e) {
-      console.error(e);
-      const grid = document.getElementById('galleryGrid');
-      grid.innerHTML = '<p style="font-size:0.9rem;color:#777;">Unable to load gallery right now.</p>';
-    }
-  }
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <p class="section-intro">
+        A peek into some of our favourite creations. We also take fully custom orders.
+      </p>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
 
-  loadGallery();
-</script>
+    <script>
+      async function loadGallery() {
+        try {
+          const res = await fetch('gallery.json?_=' + Date.now());
+          if (!res.ok) throw new Error('Failed to load gallery');
 
-    <!-- Order + Guest Checkout -->
+          const items = await res.json();
+          const grid = document.getElementById('galleryGrid');
+          grid.innerHTML = '';
+
+          items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.innerHTML = `
+              <div class="gallery-img" style="background-image:url('${item.image}');"></div>
+              <div class="gallery-content">
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+              </div>
+            `;
+            grid.appendChild(div);
+          });
+
+        } catch (e) {
+          console.error(e);
+          document.getElementById('galleryGrid').innerHTML =
+            '<p style="font-size:0.9rem;color:#777;">Unable to load gallery right now.</p>';
+        }
+      }
+
+      loadGallery();
+    </script>
+
+    <!-- Order -->
     <section id="order">
       <h2>Place an Order</h2>
       <p class="section-intro">
         You can order as a guest or log in for a faster checkout and order history.
       </p>
+
       <div class="two-column">
+
         <!-- Guest order -->
         <div class="card">
           <h3>Guest Checkout</h3>
           <p>No account needed. Just fill in your details and we’ll confirm your order.</p>
+
           <form id="guestOrderForm">
+
             <div class="inline">
               <div>
                 <label for="guestName">Full Name</label>
@@ -430,8 +319,8 @@
               <option value="chocolate_cake">Chocolate Cake</option>
               <option value="vanilla_cake">Vanilla Cake</option>
               <option value="butterscotch_cake">Butterscotch Cake</option>
-              <option value="cupcake_box">Assorted Cupcake Box (12)</option>
-              <option value="cupcake_box">Assorted Cupcake Box (6)</option>
+              <option value="cupcake_box_12">Assorted Cupcake Box (12)</option>
+              <option value="cupcake_box_6">Assorted Cupcake Box (6)</option>
               <option value="custom">Custom Design (we’ll contact you)</option>
             </select>
 
@@ -463,6 +352,7 @@
         <div class="card" id="login">
           <h3>Login</h3>
           <p>Log in to view your saved details and past orders.</p>
+
           <form id="loginForm">
             <label for="loginEmail">Email</label>
             <input type="email" id="loginEmail" name="loginEmail" required />
@@ -478,6 +368,7 @@
 
           <h3>Create an Account</h3>
           <p>Save your details for faster checkout next time.</p>
+
           <form id="signupForm">
             <label for="signupName">Full Name</label>
             <input type="text" id="signupName" name="signupName" required />
@@ -492,63 +383,19 @@
             <div id="signupStatus" class="status"></div>
           </form>
         </div>
+
       </div>
     </section>
 
-    <!-- Security / Trust -->
-    <section id="trust">
-      <h2>Security &amp; Trust</h2>
-      <p class="section-intro">
-        We take your privacy and payment security seriously so you can order with confidence.
-      </p>
-      <div class="two-column">
-        <div class="card">
-          <h3>How we keep your data safe</h3>
-          <ul class="trust-list">
-            <li>All orders are processed over secure, encrypted HTTPS connections.</li>
-            <li>Payments are handled by PayPal — we never store card details.</li>
-            <li>Passwords are stored using industry-standard hashing on our servers.</li>
-            <li>We only collect the minimum information needed to fulfil your order.</li>
-          </ul>
-          <p class="notice">
-            This is a demo site. In production, connect these forms to a secure backend and payment gateway.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Contact &amp; Policies</h3>
-          <p>
-            Have questions about an order, custom design, or allergies? Reach out and we’ll respond quickly.
-          </p>
-          <p style="font-size:0.9rem;">
-            <strong>Email:</strong> order.mapabakery@gmail.com<br />
-            <strong>Phone:</strong> +44 7405 277291<br />
-            <strong>Location:</strong> Port Talbot, Wales, UK
-          </p>
-          <p class="notice">
-            Add links here to your real Terms &amp; Conditions, Privacy Policy, and Refund Policy pages.
-          </p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     &copy; <span id="year"></span> MAPA Bakery. All rights reserved.
-    <br />
-    Built with love and secure-by-design principles.
   </footer>
 
   <script>
-    // Smooth scroll helper
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
-
-    // Set current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Simple front-end form handlers (demo only)
     const guestOrderForm = document.getElementById("guestOrderForm");
     const guestOrderStatus = document.getElementById("guestOrderStatus");
 
@@ -565,7 +412,6 @@
         return;
       }
 
-      // In production, send to backend via fetch()
       guestOrderStatus.textContent =
         "Order received! We’ll email you a secure payment link shortly.";
       guestOrderStatus.className = "status success";
@@ -577,17 +423,6 @@
 
     loginForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      const formData = new FormData(loginForm);
-      const email = formData.get("loginEmail");
-      const password = formData.get("loginPassword");
-
-      if (!email || !password) {
-        loginStatus.textContent = "Please enter your email and password.";
-        loginStatus.className = "status error";
-        return;
-      }
-
-      // Demo only
       loginStatus.textContent =
         "Demo login only. Connect this form to your authentication backend.";
       loginStatus.className = "status success";
@@ -598,23 +433,12 @@
 
     signupForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      const formData = new FormData(signupForm);
-      const name = formData.get("signupName");
-      const email = formData.get("signupEmail");
-      const password = formData.get("signupPassword");
-
-      if (!name || !email || !password) {
-        signupStatus.textContent = "Please fill in all fields.";
-        signupStatus.className = "status error";
-        return;
-      }
-
-      // Demo only
       signupStatus.textContent =
         "Account created (demo). In production, securely store hashed passwords on the server.";
       signupStatus.className = "status success";
       signupForm.reset();
     });
   </script>
+
 </body>
 </html>
