@@ -91,26 +91,30 @@
     }
 
     /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: center;
-      margin-top: 1.5rem;
-    }
+   .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  text-align: center;
+  width: 100%;
+}
 
-    .hero-text h1 {
-      font-size: 2.3rem;
-      margin-bottom: 0.8rem;
-      color: var(--primary-dark);
-    }
+.hero-text {
+  max-width: 900px;
+  width: 100%;
+}
 
-    .hero-text p {
-      margin-bottom: 1.2rem;
-      font-size: 0.98rem;
-    }
-
-    .hero-badges {
+.hero-text p {
+  width: 100%;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #5a4636;
+  line-height: 1.8;
+  text-align: center;
+}
+     .hero-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
