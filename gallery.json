@@ -1,12 +1,27 @@
 [
   {
-    "title": "Chocolate Truffle Cake",
-    "description": "Rich Belgian chocolate with ganache.",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1234567890/sample.jpg"
-  },
-  {
     "title": "Birthday",
     "description": "Delicious cake",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg"
+  },
+  {
+    "title": "Birthday Cake",
+    "description": "Birthday Cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg"
+  },
+  {
+    "title": "Birthday Cake",
+    "description": "Birthday Cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg"
+  },
+  {
+    "title": "Anniversary Cake",
+    "description": "Anniversary Cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg"
+  },
+  {
+    "title": "Birthday Cake",
+    "description": "Birthday Cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419258/foujq4lfrl82n4tznzow.jpg"
   }
 ]
