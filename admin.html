@@ -33,7 +33,7 @@
       font-size: 0.85rem;
       font-weight: 500;
     }
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 0.5rem 0.6rem;
       border-radius: 6px;
@@ -109,7 +109,8 @@
 </head>
 <body>
   <div class="container" id="app">
-    <!-- Login view -->
+
+    <!-- LOGIN VIEW -->
     <div id="loginView" class="login-box card">
       <h1>Admin Login</h1>
       <p style="font-size:0.9rem;">Enter the admin password to manage the gallery.</p>
@@ -119,15 +120,16 @@
       <div id="loginStatus" class="status"></div>
     </div>
 
-    <!-- Admin view -->
+    <!-- ADMIN VIEW -->
     <div id="adminView" style="display:none;">
       <h1>Gallery Admin – Mapa Bakery</h1>
 
+      <!-- UPLOAD FORM -->
       <div class="card">
         <h2 style="font-size:1.1rem;margin-top:0;">Add / Upload Photo</h2>
         <p style="font-size:0.85rem;">
           1) Click “Upload Image” to upload to Cloudinary<br>
-          2) Fill title & description<br>
+          2) Fill title, description & category<br>
           3) Click “Add to Gallery”<br>
           4) When done, click “Download JSON” and commit it as <code>gallery.json</code> in GitHub.
         </p>
@@ -135,171 +137,182 @@
         <button id="uploadWidgetBtn">Upload Image</button>
         <div id="uploadStatus" class="status"></div>
 
-        <label for="title">Title</label>
+        <label>Title</label>
         <input type="text" id="title">
 
-        <label for="description">Description</label>
+        <label>Description</label>
         <textarea id="description" rows="2"></textarea>
 
-        <label for="imageUrl">Image URL (from Cloudinary)</label>
+        <label>Category</label>
+        <select id="category">
+          <option value="">Select category</option>
+          <option value="birthday">Birthday</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="well_done">Congratulations / Well Done</option>
+          <option value="mothers">Mother’s Day</option>
+          <option value="fathers">Father’s Day</option>
+          <option value="seasonal">Seasonal / Festive</option>
+          <option value="cupcakes">Cupcakes</option>
+          <option value="custom">Custom Designs</option>
+        </select>
+
+        <label>Image URL (auto-filled)</label>
         <input type="text" id="imageUrl" readonly>
 
         <button id="addItemBtn">Add to Gallery</button>
         <div id="adminStatus" class="status"></div>
       </div>
 
+      <!-- EXISTING ITEMS -->
       <div class="card">
         <h2 style="font-size:1.1rem;margin-top:0;">Current Gallery Items</h2>
         <div id="galleryList" class="gallery-list"></div>
         <button id="downloadJsonBtn" style="margin-top:0.8rem;">Download gallery.json</button>
-        <p class="status" style="margin-top:0.4rem;font-size:0.8rem;">
-          After downloading, upload/commit this file to your GitHub repo root as <code>gallery.json</code>.
-        </p>
       </div>
     </div>
   </div>
 
-  <!-- Cloudinary Upload Widget -->
-  <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+  <!-- CLOUDINARY WIDGET -->
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script>
+
   <script>
-    // ====== SIMPLE PASSWORD PROTECTION ======
-    const ADMIN_PASSWORD = 'Mapa@2026'; // set your own password
+    const ADMIN_PASSWORD = "Mapa@2026";
 
-    const loginView = document.getElementById('loginView');
-    const adminView = document.getElementById('adminView');
-    const loginBtn = document.getElementById('loginBtn');
-    const loginStatus = document.getElementById('loginStatus');
+    const loginView = document.getElementById("loginView");
+    const adminView = document.getElementById("adminView");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginStatus = document.getElementById("loginStatus");
 
-    loginBtn.addEventListener('click', () => {
-      const input = document.getElementById('adminPassword').value.trim();
+    loginBtn.addEventListener("click", () => {
+      const input = document.getElementById("adminPassword").value.trim();
       if (input === ADMIN_PASSWORD) {
-        loginView.style.display = 'none';
-        adminView.style.display = 'block';
+        loginView.style.display = "none";
+        adminView.style.display = "block";
         loadExistingGallery();
       } else {
-        loginStatus.textContent = 'Incorrect password.';
-        loginStatus.className = 'status error';
+        loginStatus.textContent = "Incorrect password.";
+        loginStatus.className = "status error";
       }
     });
 
-    // ====== GALLERY STATE ======
+    // GALLERY STATE
     let galleryItems = [];
 
-    const galleryListEl = document.getElementById('galleryList');
-    const uploadStatus = document.getElementById('uploadStatus');
-    const adminStatus = document.getElementById('adminStatus');
+    const galleryListEl = document.getElementById("galleryList");
+    const uploadStatus = document.getElementById("uploadStatus");
+    const adminStatus = document.getElementById("adminStatus");
 
-    const titleInput = document.getElementById('title');
-    const descInput = document.getElementById('description');
-    const imageUrlInput = document.getElementById('imageUrl');
+    const titleInput = document.getElementById("title");
+    const descInput = document.getElementById("description");
+    const categoryInput = document.getElementById("category");
+    const imageUrlInput = document.getElementById("imageUrl");
 
-    // ====== LOAD EXISTING GALLERY.JSON ======
+    // LOAD EXISTING JSON
     async function loadExistingGallery() {
       try {
-        const res = await fetch('gallery.json?_=' + Date.now());
-        if (!res.ok) throw new Error('No existing gallery.json found');
+        const res = await fetch("gallery.json?_=" + Date.now());
         galleryItems = await res.json();
-      } catch (e) {
-        console.warn('Starting with empty gallery:', e.message);
+      } catch {
         galleryItems = [];
       }
       renderGalleryList();
     }
 
     function renderGalleryList() {
-      galleryListEl.innerHTML = '';
+      galleryListEl.innerHTML = "";
+
       if (!galleryItems.length) {
-        galleryListEl.innerHTML = '<p style="font-size:0.85rem;color:#777;">No items yet.</p>';
+        galleryListEl.innerHTML = "<p style='font-size:0.85rem;color:#777;'>No items yet.</p>";
         return;
       }
 
       galleryItems.forEach((item, index) => {
-        const row = document.createElement('div');
-        row.className = 'gallery-item-row';
+        const row = document.createElement("div");
+        row.className = "gallery-item-row";
+
         row.innerHTML = `
-          <div class="thumb" style="background-image:url('${item.image}');"></div>
+          <div class="thumb" style="background-image:url('${item.image}')"></div>
           <div class="meta">
             <strong>${item.title}</strong>
             <div>${item.description}</div>
+            <div><em>${item.category}</em></div>
             <div class="small">${item.image}</div>
           </div>
-          <div>
-            <button class="danger" data-index="${index}">Delete</button>
-          </div>
+          <button class="danger" data-index="${index}">Delete</button>
         `;
+
         galleryListEl.appendChild(row);
       });
 
-      galleryListEl.querySelectorAll('.danger').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const idx = parseInt(btn.getAttribute('data-index'), 10);
+      document.querySelectorAll(".danger").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const idx = btn.getAttribute("data-index");
           galleryItems.splice(idx, 1);
           renderGalleryList();
         });
       });
     }
 
-    // ====== CLOUDINARY UPLOAD WIDGET ======
+    // CLOUDINARY UPLOAD
     const uploadWidget = cloudinary.createUploadWidget(
       {
-        cloudName: 'dv9tuxwbd',
-        uploadPreset: 'mapabakeryphotos'
+        cloudName: "dv9tuxwbd",
+        uploadPreset: "mapabakeryphotos"
       },
       (error, result) => {
         if (!error && result && result.event === "success") {
-          const url = result.info.secure_url;
-          imageUrlInput.value = url;
-          uploadStatus.textContent = 'Image uploaded successfully.';
-          uploadStatus.className = 'status success';
-        } else if (error) {
-          console.error(error);
-          uploadStatus.textContent = 'Upload failed.';
-          uploadStatus.className = 'status error';
+          imageUrlInput.value = result.info.secure_url;
+          uploadStatus.textContent = "Image uploaded successfully.";
+          uploadStatus.className = "status success";
         }
       }
     );
 
-    document.getElementById('uploadWidgetBtn').addEventListener('click', () => {
-      uploadStatus.textContent = '';
+    document.getElementById("uploadWidgetBtn").addEventListener("click", () => {
+      uploadStatus.textContent = "";
       uploadWidget.open();
     });
 
-    // ====== ADD ITEM TO GALLERY ======
-    document.getElementById('addItemBtn').addEventListener('click', () => {
+    // ADD ITEM
+    document.getElementById("addItemBtn").addEventListener("click", () => {
       const title = titleInput.value.trim();
       const description = descInput.value.trim();
+      const category = categoryInput.value.trim();
       const image = imageUrlInput.value.trim();
 
-      if (!title || !description || !image) {
-        adminStatus.textContent = 'Please fill title, description, and upload an image.';
-        adminStatus.className = 'status error';
+      if (!title || !description || !category || !image) {
+        adminStatus.textContent = "Please fill all fields.";
+        adminStatus.className = "status error";
         return;
       }
 
-      galleryItems.push({ title, description, image });
+      galleryItems.push({ title, description, image, category });
       renderGalleryList();
 
-      titleInput.value = '';
-      descInput.value = '';
-      imageUrlInput.value = '';
+      titleInput.value = "";
+      descInput.value = "";
+      categoryInput.value = "";
+      imageUrlInput.value = "";
 
-      adminStatus.textContent = 'Item added to gallery (remember to download JSON).';
-      adminStatus.className = 'status success';
+      adminStatus.textContent = "Item added to gallery.";
+      adminStatus.className = "status success";
     });
 
-    // ====== DOWNLOAD UPDATED GALLERY.JSON ======
-    document.getElementById('downloadJsonBtn').addEventListener('click', () => {
-      const blob = new Blob([JSON.stringify(galleryItems, null, 2)], { type: 'application/json' });
+    // DOWNLOAD JSON
+    document.getElementById("downloadJsonBtn").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(galleryItems, null, 2)], {
+        type: "application/json"
+      });
+
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.download = 'gallery.json';
-      document.body.appendChild(a);
+      a.download = "gallery.json";
       a.click();
-      document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      adminStatus.textContent = 'Downloaded gallery.json. Upload/commit this file to GitHub.';
-      adminStatus.className = 'status success';
+
+      adminStatus.textContent = "Downloaded gallery.json. Upload it to GitHub.";
+      adminStatus.className = "status success";
     });
   </script>
 </body>
