@@ -1,11 +1,5 @@
 [
   {
-    "title": "Pink Floral Birthday Cake",
-    "description": "Fresh cream floral birthday cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
-    "category": "birthday"
-  },
-  {
     "title": "Chocolate Drip Birthday Cake",
     "description": "Chocolate sponge with drip design",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
@@ -17,88 +11,64 @@
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
     "category": "birthday"
   },
-
-  {
-    "title": "Elegant Anniversary Cake",
-    "description": "Red velvet heart-shaped anniversary cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg",
-    "category": "anniversary"
-  },
-
   {
     "title": "Gold Theme Anniversary Cake",
     "description": "Fresh cream anniversary cake with gold accents",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419258/foujq4lfrl82n4tznzow.jpg",
     "category": "anniversary"
   },
-
   {
     "title": "Congratulations Cake",
     "description": "Perfect for exam results or achievements",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
     "category": "well_done"
   },
-
   {
     "title": "Well Done Cake",
     "description": "Celebrate success with a custom message",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
     "category": "well_done"
   },
-
   {
     "title": "Mother’s Day Floral Cake",
     "description": "Soft pastel colours with floral piping",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
     "category": "mothers"
   },
-
-  {
-    "title": "Father’s Day Chocolate Cake",
-    "description": "Bold chocolate design for Father’s Day",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419258/foujq4lfrl82n4tznzow.jpg",
-    "category": "fathers"
-  },
-
   {
     "title": "Christmas Theme Cake",
     "description": "Festive red and green Christmas cake",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg",
     "category": "seasonal"
   },
-
   {
     "title": "Easter Cupcake Set",
     "description": "Cute pastel cupcakes for Easter",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
     "category": "seasonal"
   },
-
-  {
-    "title": "Assorted Cupcakes (12)",
-    "description": "Fresh cream assorted cupcakes",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
-    "category": "cupcakes"
-  },
-
-  {
-    "title": "Theme Cupcakes",
-    "description": "Custom theme cupcakes for any event",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
-    "category": "cupcakes"
-  },
-
-  {
-    "title": "Custom Photo Cake",
-    "description": "Upload your photo for a personalised cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg",
-    "category": "custom"
-  },
-
   {
     "title": "Fully Custom Design",
     "description": "Any design you imagine — we create it",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
     "category": "custom"
+  },
+  {
+    "title": "Father's Day",
+    "description": "This elegant Father’s Day cake features a smooth, vibrant orange finish with delicate cream‑and‑orange floral piping around the sides. The top edge is bordered with a neatly piped cream design, adding a refined touch. The cake is beautifully decorated with white and gold edible spheres, a metallic gold fan accent, and a stylish Happy Father’s Day topper that gives it a celebratory flair. Presented on a silver cake board, it’s a striking centrepiece designed to impress and delight.",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781612281/zfkzqvl7einkfoeaceui.jpg",
+    "category": "fathers"
+  },
+  {
+    "title": "Father’s Day",
+    "description": "This charming two‑tier Father’s Day cake is finished in a soft blue palette, accented with light yellow icing and tiny heart details that add a warm, playful touch. Each tier is neatly bordered, creating a clean and elegant silhouette. The cake is topped with an array of festive Father’s Day toppers, including messages like Dad is my Hero, World’s #1 Dad, and Best Dad Ever, along with fun icons such as a mustache, tie, trophy, bow tie, and top hat.",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781612408/z8mq5vvxx2pbhko9qhy8.jpg",
+    "category": "fathers"
+  },
+  {
+    "title": "Father’s Day",
+    "description": "This classic Father’s Day cake features a beautifully piped white basket‑weave design around the sides, paired with neat star‑shaped dollops framing the top edge. The centre showcases a bold edible print bordered in red, displaying a playful “Best Dad in the World” theme with a mustache, tie, and globe‑inspired eyes forming a fun, stylised face.",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781612501/mu88imfk42krfgx8b6bt.jpg",
+    "category": "fathers"
   }
 ]
