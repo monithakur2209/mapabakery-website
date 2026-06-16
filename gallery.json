@@ -1,75 +1,104 @@
 [
-<div id="galleryFilters" style="margin-bottom:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-  <button onclick="filterGallery('all')" class="btn-primary">All</button>
-  <button onclick="filterGallery('birthday')" class="btn-primary">Birthday</button>
-  <button onclick="filterGallery('anniversary')" class="btn-primary">Anniversary</button>
-  <button onclick="filterGallery('well_done')" class="btn-primary"> Congratulations / Well Done</button>
-  <button onclick="filterGallery('mothers')" class="btn-primary">Mother’s Day</button>
-  <button onclick="filterGallery('fathers')" class="btn-primary">Father’s Day</button>
-  <button onclick="filterGallery('fathers')" class="btn-primary">Seasonal / Festive</button>
-  <button onclick="filterGallery('cupcakes')" class="btn-primary">Cupcakes</button>
-  <button onclick="filterGallery('custom')" class="btn-primary">Custom Designs</button>
-</div>
-let galleryItems = [];
-
-async function loadGallery() {
-  const res = await fetch('gallery.json?_=' + Date.now());
-  galleryItems = await res.json();
-  renderGallery(galleryItems);
-}
-
-function renderGallery(items) {
-  const grid = document.getElementById('galleryGrid');
-  grid.innerHTML = '';
-
-  items.forEach(item => {
-    const div = document.createElement('div');
-    div.className = 'gallery-item';
-    div.innerHTML = `
-      <div class="gallery-img" 
-           style="background-image:url('${item.image}'); cursor:pointer;"
-           onclick="openImageModal('${item.image}')">
-      </div>
-      <div class="gallery-content">
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-      </div>
-    `;
-    grid.appendChild(div);
-  });
-}
-
-function filterGallery(category) {
-  if (category === 'all') {
-    renderGallery(galleryItems);
-  } else {
-    renderGallery(galleryItems.filter(i => i.category === category));
-  }
-}
-
   {
-    "title": "Birthday",
-    "description": "Delicious cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg"
+    "title": "Pink Floral Birthday Cake",
+    "description": "Fresh cream floral birthday cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
+    "category": "birthday"
   },
   {
-    "title": "Birthday Cake",
-    "description": "Birthday Cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg"
+    "title": "Chocolate Drip Birthday Cake",
+    "description": "Chocolate sponge with drip design",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
+    "category": "birthday"
   },
   {
-    "title": "Birthday Cake",
-    "description": "Birthday Cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg"
+    "title": "Buttercream Birthday Cake",
+    "description": "Classic buttercream swirl design",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
+    "category": "birthday"
   },
+
   {
-    "title": "Anniversary Cake",
-    "description": "Anniversary Cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg"
+    "title": "Elegant Anniversary Cake",
+    "description": "Red velvet heart-shaped anniversary cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg",
+    "category": "anniversary"
   },
+
   {
-    "title": "Birthday Cake",
-    "description": "Birthday Cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419258/foujq4lfrl82n4tznzow.jpg"
+    "title": "Gold Theme Anniversary Cake",
+    "description": "Fresh cream anniversary cake with gold accents",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419258/foujq4lfrl82n4tznzow.jpg",
+    "category": "anniversary"
+  },
+
+  {
+    "title": "Congratulations Cake",
+    "description": "Perfect for exam results or achievements",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
+    "category": "well_done"
+  },
+
+  {
+    "title": "Well Done Cake",
+    "description": "Celebrate success with a custom message",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
+    "category": "well_done"
+  },
+
+  {
+    "title": "Mother’s Day Floral Cake",
+    "description": "Soft pastel colours with floral piping",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
+    "category": "mothers"
+  },
+
+  {
+    "title": "Father’s Day Chocolate Cake",
+    "description": "Bold chocolate design for Father’s Day",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419258/foujq4lfrl82n4tznzow.jpg",
+    "category": "fathers"
+  },
+
+  {
+    "title": "Christmas Theme Cake",
+    "description": "Festive red and green Christmas cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg",
+    "category": "seasonal"
+  },
+
+  {
+    "title": "Easter Cupcake Set",
+    "description": "Cute pastel cupcakes for Easter",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
+    "category": "seasonal"
+  },
+
+  {
+    "title": "Assorted Cupcakes (12)",
+    "description": "Fresh cream assorted cupcakes",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
+    "category": "cupcakes"
+  },
+
+  {
+    "title": "Theme Cupcakes",
+    "description": "Custom theme cupcakes for any event",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
+    "category": "cupcakes"
+  },
+
+  {
+    "title": "Custom Photo Cake",
+    "description": "Upload your photo for a personalised cake",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg",
+    "category": "custom"
+  },
+
+  {
+    "title": "Fully Custom Design",
+    "description": "Any design you imagine — we create it",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
+    "category": "custom"
   }
 ]
