@@ -328,6 +328,37 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Full Gallery Category Layout */
+.category-block {
+  margin-top: 2.5rem;
+}
+
+.category-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.category-item {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.category-item-img {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -367,9 +398,8 @@
   <p class="section-intro">
     A peek into some of our favourite creations. We also take fully custom orders.
   </p>
-  <div class="gallery-grid" id="galleryGrid">
-    <!-- Items will be injected by JS -->
-  </div>
+
+  <div id="fullGallery"></div>
 </section>
 <script>
   async function loadGallery() {
@@ -649,5 +679,71 @@ function openImageModal(src) {
 }
 </script>
 </div>
+  <script>
+let galleryItems = [];
+
+async function loadGallery() {
+  try {
+    const res = await fetch('gallery.json?_=' + Date.now());
+    galleryItems = await res.json();
+    renderFullGallery();
+  } catch (e) {
+    console.error(e);
+    document.getElementById("fullGallery").innerHTML =
+      "<p style='color:#777;'>Unable to load gallery.</p>";
+  }
+}
+
+function renderFullGallery() {
+  const container = document.getElementById("fullGallery");
+  container.innerHTML = "";
+
+  // Group items by category
+  const categories = {};
+  galleryItems.forEach(item => {
+    if (!categories[item.category]) categories[item.category] = [];
+    categories[item.category].push(item);
+  });
+
+  // Render each category block
+  Object.keys(categories).forEach(cat => {
+    const block = document.createElement("div");
+    block.className = "category-block";
+
+    block.innerHTML = `
+      <h3 class="category-title">${formatCategory(cat)}</h3>
+      <div class="category-grid">
+        ${categories[cat].map(item => `
+          <div class="category-item">
+            <div class="category-item-img"
+                 style="background-image:url('${item.image}')"
+                 onclick="openImageModal('${item.image}')">
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
+
+    container.appendChild(block);
+  });
+}
+
+// Convert category keys to readable titles
+function formatCategory(cat) {
+  const map = {
+    birthday: "Birthday",
+    anniversary: "Anniversary",
+    well_done: "Congratulations / Well Done",
+    mothers: "Mother’s Day",
+    fathers: "Father’s Day",
+    seasonal: "Seasonal / Festive",
+    cupcakes: "Cupcakes",
+    custom: "Custom Designs"
+  };
+  return map[cat] || cat;
+}
+
+loadGallery();
+</script>
 </body>
 </html>
