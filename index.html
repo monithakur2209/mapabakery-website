@@ -382,13 +382,16 @@
       items.forEach(item => {
         const div = document.createElement('div');
         div.className = 'gallery-item';
-        div.innerHTML = `
-          <div class="gallery-img" style="background-image:url('${item.image}');"></div>
-          <div class="gallery-content">
-            <h3>${item.title}</h3>
-            <p>${item.description}</p>
-          </div>
-        `;
+  div.innerHTML = `
+  <div class="gallery-img" 
+       style="background-image:url('${item.image}'); cursor:pointer;"
+       onclick="openImageModal('${item.image}')">
+  </div>
+  <div class="gallery-content">
+    <h3>${item.title}</h3>
+    <p>${item.description}</p>
+  </div>
+`;
         grid.appendChild(div);
       });
     } catch (e) {
@@ -631,6 +634,20 @@
     border-radius:10px;
     box-shadow:0 0 20px rgba(255,255,255,0.3);
   ">
+  <script>
+function openImageModal(src) {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+
+  modalImg.src = src;
+  modal.style.display = "flex";
+
+  // Close modal when clicking outside the image
+  modal.onclick = () => {
+    modal.style.display = "none";
+  };
+}
+</script>
 </div>
 </body>
 </html>
