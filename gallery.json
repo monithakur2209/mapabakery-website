@@ -1,3 +1,4 @@
+[
 <div id="galleryFilters" style="margin-bottom:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
   <button onclick="filterGallery('all')" class="btn-primary">All</button>
   <button onclick="filterGallery('birthday')" class="btn-primary">Birthday</button>
@@ -46,8 +47,6 @@ function filterGallery(category) {
   }
 }
 
-
-[
   {
     "title": "Birthday",
     "description": "Delicious cake",
