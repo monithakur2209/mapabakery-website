@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>MAPA Bakery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Basic security/trust meta --> 
   <meta name="description" content="Order fresh Cakes and Cupcakes from MAPA Bakery." />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" />
-
   <style>
     :root {
       --primary: #c96b7b;
@@ -18,7 +18,11 @@
       --shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: "Poppins", sans-serif;
@@ -58,7 +62,9 @@
       font-weight: 500;
     }
 
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
 
     .btn-primary {
       background: var(--primary);
@@ -85,92 +91,136 @@
     }
 
     /* Hero */
-    .hero {
+   .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-text {
+  max-width: 900px;
+  width: 100%;
+}
+
+.hero-text p {
+  width: 100%;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #5a4636;
+  line-height: 1.8;
+  text-align: center;
+}
+     .hero-badges {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin-top: 2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
     }
 
-    .hero-text p {
-      font-style: italic;
-      font-size: 1.4rem;
-      color: #5a4636;
-      line-height: 1.8;
+    .badge {
+      background: var(--accent);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+    }
+
+    .hero-image {
+      background: linear-gradient(135deg, #ffe7ec, #fff);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .hero-image-inner {
+      border-radius: 16px;
+      background: #fff;
+      padding: 1.5rem;
+      border: 2px dashed #f3c1cc;
+    }
+
+    .hero-image h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .hero-image p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-image small {
+      display: block;
+      font-size: 0.75rem;
+      color: #777;
     }
 
     /* Sections */
-    section { margin-top: 3rem; }
+    section {
+      margin-top: 3rem;
+    }
+
     section h2 {
       font-size: 1.6rem;
       margin-bottom: 0.8rem;
       color: var(--primary-dark);
     }
+
     section p.section-intro {
       font-size: 0.95rem;
       margin-bottom: 1.2rem;
       color: #555;
     }
 
-    /* ====== 4-Image Carousel Gallery ====== */
-    .gallery-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1rem;
-      margin-top: 1.5rem;
     }
 
-    .gallery-carousel {
-      width: 100%;
+    .gallery-item {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
-    }
-
-    .carousel-inner {
       display: flex;
-      transition: transform 0.4s ease-in-out;
+      flex-direction: column;
     }
 
-    .carousel-item {
-      width: 25%;
-      padding: 0.5rem;
-      box-sizing: border-box;
-    }
-
-    .carousel-img {
-      width: 100%;
-      height: 180px;
+    .gallery-img {
       background-size: cover;
       background-position: center;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      height: 150px;
     }
 
-    .nav-btn {
-      background: #c96b7b;
-      color: #fff;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.4rem;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(201,107,123,0.4);
+    .gallery-content {
+      padding: 0.8rem 0.9rem 1rem;
     }
 
-    .nav-btn:hover { background: #a55262; }
-
-    @media (max-width: 768px) {
-      .carousel-item { width: 50%; }
+    .gallery-content h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
     }
 
-    /* Order & Auth */
+    .gallery-content p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Order & Auth layout */
     .two-column {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
+      align-items: flex-start;
     }
 
     .card {
@@ -180,6 +230,69 @@
       padding: 1.2rem 1.4rem;
     }
 
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: var(--primary-dark);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      color: #555;
+    }
+
+    form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .inline {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .inline > * {
+      flex: 1;
+    }
+
+    .trust-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .trust-list li::before {
+      content: "✔";
+      color: var(--primary);
+      margin-right: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .notice {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 0.4rem;
+    }
+
     footer {
       margin-top: 3rem;
       padding: 1.5rem;
@@ -187,35 +300,158 @@
       font-size: 0.8rem;
       color: #777;
     }
+
+    footer a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .status {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .status.success {
+      color: #1b8a4b;
+    }
+
+    .status.error {
+      color: #b3261e;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Full Gallery Category Layout */
+.category-block {
+  margin-top: 2.5rem;
+}
+
+.category-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.category-item {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.category-item-img {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+    /* ====== 4-Image Carousel Gallery ====== */
+.gallery-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.gallery-carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-item {
+  width: 25%; /* 4 images per row */
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Navigation buttons */
+.nav-btn {
+  background: #c96b7b;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(201,107,123,0.4);
+}
+
+.nav-btn:hover {
+  background: #a55262;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 50%; /* 2 per row on mobile */
+  }
+}
+
   </style>
 </head>
-
 <body>
-<header>
-  <div class="nav">
-    <div class="logo">MAPA Bakery</div>
-    <nav class="nav-links">
-      <a onclick="scrollToSection('home')">Home</a>
-      <a onclick="scrollToSection('gallery')">Gallery</a>
-      <a onclick="scrollToSection('order')">Order</a>
-      <a onclick="scrollToSection('login')">Login</a>
-    </nav>
-  </div>
-</header>
+  <header>
+    <div class="nav">
+      <div class="logo">MAPA Bakery</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#order">Order</a>
+        <a href="#login">Login</a>
+       </nav>
+    </div>
+  </header>
 
-<main>
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Bites of Happiness, Delivered.</h1>
+       <p style="
+    width: 100%;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #5a4636; 
+    line-height: 1.8;
+    text-align: center;
+    max-width: 100%;
+    ">
+          At MAPA Bakery, we craft Cakes that delight both the eye and the taste buds. Choose from egg or eggless options, custom designs, and beautifully decorated creations made with fresh cream and your preferred sponge. Order online as a guest or create an account to track your favourites. For picture-based decorations, kindly place your order at least one week in advance so we can prepare the design.
+        </p>
+    </section>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-text">
-    <h1>Bites of Happiness, Delivered.</h1>
-    <p>
-      At MAPA Bakery, we craft Cakes that delight both the eye and the taste buds...
-    </p>
-  </div>
-</section>
-
-<!-- GALLERY -->
+    <!-- Gallery -->
+<section id="gallery">
 <section id="gallery">
   <h2>Gallery</h2>
   <p class="section-intro">
@@ -232,53 +468,280 @@
     <button class="nav-btn" id="nextBtn">&#10095;</button>
   </div>
 </section>
+  async function loadGallery() {
+    try {
+      const res = await fetch('gallery.json?_=' + Date.now());
+      if (!res.ok) throw new Error('Failed to load gallery');
+      const items = await res.json();
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '';
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+  div.innerHTML = `
+  <div class="gallery-img" 
+       style="background-image:url('${item.image}'); cursor:pointer;"
+       onclick="openImageModal('${item.image}')">
+  </div>
+  <div class="gallery-content">
+    <h3>${item.title}</h3>
+    <p>${item.description}</p>
+  </div>
+`;
+        grid.appendChild(div);
+      });
+    } catch (e) {
+      console.error(e);
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '<p style="font-size:0.9rem;color:#777;">Unable to load gallery right now.</p>';
+    }
+  }
 
-<!-- ORDER SECTION -->
-<section id="order">
-  <!-- your existing order HTML unchanged -->
-</section>
-
-<!-- TRUST SECTION -->
-<section id="trust">
-  <!-- your existing trust HTML unchanged -->
-</section>
-
-</main>
-
-<footer>
-  &copy; <span id="year"></span> MAPA Bakery. All rights reserved.
-</footer>
-
-<!-- IMAGE MODAL -->
-<div id="imageModal" style="
-  display:none; position:fixed; top:0; left:0;
-  width:100%; height:100%; background:rgba(0,0,0,0.8);
-  justify-content:center; align-items:center; z-index:9999;">
-  <img id="modalImage" style="max-width:90%; max-height:90%; border-radius:10px;">
-</div>
-
-<script>
-function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}
-
-document.getElementById("year").textContent = new Date().getFullYear();
+  loadGallery();
 </script>
 
-<!-- CAROUSEL GALLERY JS -->
-<script>
+    <!-- Order + Guest Checkout -->
+    <section id="order">
+      <h2>Place an Order</h2>
+      <p class="section-intro">
+        You can order as a guest or log in for a faster checkout and order history.
+      </p>
+      <div class="two-column">
+        <!-- Guest order -->
+        <div class="card">
+          <h3>Guest Checkout</h3>
+          <p>No account needed. Just fill in your details and we’ll confirm your order.</p>
+          <form id="guestOrderForm">
+            <div class="inline">
+              <div>
+                <label for="guestName">Full Name</label>
+                <input type="text" id="guestName" name="guestName" required />
+              </div>
+              <div>
+                <label for="guestPhone">Phone</label>
+                <input type="tel" id="guestPhone" name="guestPhone" required />
+              </div>
+            </div>
+
+            <label for="guestEmail">Email (for confirmation)</label>
+            <input type="email" id="guestEmail" name="guestEmail" required />
+
+            <label for="item">Select Item</label>
+            <select id="item" name="item" required>
+              <option value="">Choose an item</option>
+              <option value="chocolate_cake">Chocolate Cake</option>
+              <option value="vanilla_cake">Vanilla Cake</option>
+              <option value="butterscotch_cake">Butterscotch Cake</option>
+              <option value="cupcake_box">Assorted Cupcake Box (12)</option>
+              <option value="cupcake_box">Assorted Cupcake Box (6)</option>
+              <option value="custom">Custom Design (we’ll contact you)</option>
+            </select>
+
+            <div class="inline">
+              <div>
+                <label for="size">Size</label>
+                <select id="size" name="size" required>
+                  <option value="">Select size</option>
+                  <option value="0.5kg">0.5 kg</option>
+                  <option value="1kg">1 kg</option>
+                  <option value="2kg">2 kg</option>
+                </select>
+              </div>
+              <div>
+                <label for="date">Pickup/Delivery Date</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+            </div>
+
+            <label for="notes">Notes (message on cake, allergies, etc.)</label>
+            <textarea id="notes" name="notes" placeholder="E.g., Happy Birthday Aanya, no nuts."></textarea>
+
+            <button type="submit" class="btn-primary">Review &amp; Confirm</button>
+            <div id="guestOrderStatus" class="status"></div>
+          </form>
+        </div>
+
+        <!-- Login / Account -->
+        <div class="card" id="login">
+          <h3>Login</h3>
+          <p>Log in to view your saved details and past orders.</p>
+          <form id="loginForm">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="loginEmail" required />
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="loginPassword" required />
+
+            <button type="submit" class="btn-primary">Login</button>
+            <div id="loginStatus" class="status"></div>
+          </form>
+
+          <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;" />
+
+          <h3>Create an Account</h3>
+          <p>Save your details for faster checkout next time.</p>
+          <form id="signupForm">
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" name="signupName" required />
+
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="signupEmail" required />
+
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="signupPassword" required />
+
+            <button type="submit" class="btn-primary">Sign Up</button>
+            <div id="signupStatus" class="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security / Trust -->
+    <section id="trust">
+      <h2>Security &amp; Trust</h2>
+      <p class="section-intro">
+        We take your privacy and payment security seriously so you can order with confidence.
+      </p>
+      <div class="two-column">
+        <div class="card">
+          <h3>How we keep your data safe</h3>
+          <ul class="trust-list">
+            <li>All orders are processed over secure, encrypted HTTPS connections.</li>
+            <li>Payments are handled by PayPal — we never store card details.</li>
+            <li>Passwords are stored using industry-standard hashing on our servers.</li>
+            <li>We only collect the minimum information needed to fulfil your order.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Contact &amp; Policies</h3>
+          <p>
+            Have questions about an order, custom design, or allergies? Reach out and we’ll respond quickly.
+          </p>
+          <p style="font-size:0.9rem;">
+            <strong>Email:</strong> order.mapabakery@gmail.com<br />
+            <strong>Phone:</strong> +44 7405 277291<br />
+            <strong>Location:</strong> Port Talbot, Wales, UK
+          </p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> MAPA Bakery. All rights reserved.
+    <br />
+    Built with love and secure-by-design principles.
+  </footer>
+
+  <script>
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple front-end form handlers (demo only)
+    const guestOrderForm = document.getElementById("guestOrderForm");
+    const guestOrderStatus = document.getElementById("guestOrderStatus");
+
+    guestOrderForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(guestOrderForm);
+      const name = formData.get("guestName");
+      const item = formData.get("item");
+      const date = formData.get("date");
+
+      if (!name || !item || !date) {
+        guestOrderStatus.textContent = "Please fill in all required fields.";
+        guestOrderStatus.className = "status error";
+        return;
+      }
+
+      // In production, send to backend via fetch()
+      guestOrderStatus.textContent =
+        "Order received! We’ll email you a secure payment link shortly.";
+      guestOrderStatus.className = "status success";
+      guestOrderForm.reset();
+    });
+
+    const loginForm = document.getElementById("loginForm");
+    const loginStatus = document.getElementById("loginStatus");
+
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(loginForm);
+      const email = formData.get("loginEmail");
+      const password = formData.get("loginPassword");
+
+      if (!email || !password) {
+        loginStatus.textContent = "Please enter your email and password.";
+        loginStatus.className = "status error";
+        return;
+      }
+
+      // Demo only
+      loginStatus.textContent =
+        "Demo login only. Connect this form to your authentication backend.";
+      loginStatus.className = "status success";
+    });
+
+    const signupForm = document.getElementById("signupForm");
+    const signupStatus = document.getElementById("signupStatus");
+
+    signupForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(signupForm);
+      const name = formData.get("signupName");
+      const email = formData.get("signupEmail");
+      const password = formData.get("signupPassword");
+
+      if (!name || !email || !password) {
+        signupStatus.textContent = "Please fill in all fields.";
+        signupStatus.className = "status error";
+        return;
+      }
+
+      // Demo only
+      signupStatus.textContent =
+        "Account created (demo). In production, securely store hashed passwords on the server.";
+      signupStatus.className = "status success";
+      signupForm.reset();
+    });
+  </script>
+  <!-- Image Modal -->
+<div id="imageModal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+  <img id="modalImage" src="" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(255,255,255,0.3);
+  ">
+  <script>
 let galleryItems = [];
 let currentIndex = 0;
 const itemsPerPage = 4;
 
-async function loadCarousel() {
+async function loadGallery() {
   try {
     const res = await fetch('gallery.json?_=' + Date.now());
     galleryItems = await res.json();
     renderCarousel();
   } catch (e) {
-    console.error("Failed to load gallery:", e);
+    console.error(e);
   }
 }
 
@@ -321,18 +784,88 @@ document.getElementById("prevBtn").addEventListener("click", () => {
   }
 });
 
-loadCarousel();
+loadGallery();
 </script>
-
-<script>
+  <script>
 function openImageModal(src) {
   const modal = document.getElementById("imageModal");
   const modalImg = document.getElementById("modalImage");
+
   modalImg.src = src;
   modal.style.display = "flex";
-  modal.onclick = () => modal.style.display = "none";
+
+  // Close modal when clicking outside the image
+  modal.onclick = () => {
+    modal.style.display = "none";
+  };
 }
 </script>
+</div>
+  <script>
+let galleryItems = [];
 
+async function loadGallery() {
+  try {
+    const res = await fetch('gallery.json?_=' + Date.now());
+    galleryItems = await res.json();
+    renderFullGallery();
+  } catch (e) {
+    console.error(e);
+    document.getElementById("fullGallery").innerHTML =
+      "<p style='color:#777;'>Unable to load gallery.</p>";
+  }
+}
+
+function renderFullGallery() {
+  const container = document.getElementById("fullGallery");
+  container.innerHTML = "";
+
+  // Group items by category
+  const categories = {};
+  galleryItems.forEach(item => {
+    if (!categories[item.category]) categories[item.category] = [];
+    categories[item.category].push(item);
+  });
+
+  // Render each category block
+  Object.keys(categories).forEach(cat => {
+    const block = document.createElement("div");
+    block.className = "category-block";
+
+    block.innerHTML = `
+      <h3 class="category-title">${formatCategory(cat)}</h3>
+      <div class="category-grid">
+        ${categories[cat].map(item => `
+          <div class="category-item">
+            <div class="category-item-img"
+                 style="background-image:url('${item.image}')"
+                 onclick="openImageModal('${item.image}')">
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
+
+    container.appendChild(block);
+  });
+}
+
+// Convert category keys to readable titles
+function formatCategory(cat) {
+  const map = {
+    birthday: "Birthday",
+    anniversary: "Anniversary",
+    well_done: "Congratulations / Well Done",
+    mothers: "Mother’s Day",
+    fathers: "Father’s Day",
+    seasonal: "Seasonal / Festive",
+    cupcakes: "Cupcakes",
+    custom: "Custom Designs"
+  };
+  return map[cat] || cat;
+}
+
+loadGallery();
+</script>
 </body>
 </html>
