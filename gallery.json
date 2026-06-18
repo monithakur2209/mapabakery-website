@@ -1,65 +1,5 @@
 [
   {
-    "title": "Chocolate Drip Birthday Cake",
-    "description": "Chocolate sponge with drip design",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
-    "category": "birthday"
-  },
-  {
-    "title": "Buttercream Birthday Cake",
-    "description": "Classic buttercream swirl design",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
-    "category": "birthday"
-  },
-  {
-    "title": "Gold Theme Anniversary Cake",
-    "description": "Fresh cream anniversary cake with gold accents",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419258/foujq4lfrl82n4tznzow.jpg",
-    "category": "anniversary"
-  },
-  {
-    "title": "Congratulations Cake",
-    "description": "Perfect for exam results or achievements",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419156/xid4lnoofsnkvinxrbw6.jpg",
-    "category": "well_done"
-  },
-  {
-    "title": "Well Done Cake",
-    "description": "Celebrate success with a custom message",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
-    "category": "well_done"
-  },
-  {
-    "title": "Mother’s Day Floral Cake",
-    "description": "Soft pastel colours with floral piping",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
-    "category": "mothers"
-  },
-  {
-    "title": "Christmas Theme Cake",
-    "description": "Festive red and green Christmas cake",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419184/swxbob5tynkh38e1aeqa.jpg",
-    "category": "seasonal"
-  },
-  {
-    "title": "Easter Cupcake Set",
-    "description": "Cute pastel cupcakes for Easter",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1780419115/a1zkijhaxlchiwi2fhum.jpg",
-    "category": "seasonal"
-  },
-  {
-    "title": "Fully Custom Design",
-    "description": "Any design you imagine — we create it",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1778680386/pf8ygljihnmddslg0vuh.jpg",
-    "category": "custom"
-  },
-  {
-    "title": "Father's Day",
-    "description": "This elegant Father’s Day cake features a smooth, vibrant orange finish with delicate cream‑and‑orange floral piping around the sides. The top edge is bordered with a neatly piped cream design, adding a refined touch. The cake is beautifully decorated with white and gold edible spheres, a metallic gold fan accent, and a stylish Happy Father’s Day topper that gives it a celebratory flair. Presented on a silver cake board, it’s a striking centrepiece designed to impress and delight.",
-    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781612281/zfkzqvl7einkfoeaceui.jpg",
-    "category": "fathers"
-  },
-  {
     "title": "Father’s Day",
     "description": "This charming two‑tier Father’s Day cake is finished in a soft blue palette, accented with light yellow icing and tiny heart details that add a warm, playful touch. Each tier is neatly bordered, creating a clean and elegant silhouette. The cake is topped with an array of festive Father’s Day toppers, including messages like Dad is my Hero, World’s #1 Dad, and Best Dad Ever, along with fun icons such as a mustache, tie, trophy, bow tie, and top hat.",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781612408/z8mq5vvxx2pbhko9qhy8.jpg",
@@ -70,5 +10,257 @@
     "description": "This classic Father’s Day cake features a beautifully piped white basket‑weave design around the sides, paired with neat star‑shaped dollops framing the top edge. The centre showcases a bold edible print bordered in red, displaying a playful “Best Dad in the World” theme with a mustache, tie, and globe‑inspired eyes forming a fun, stylised face.",
     "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781612501/mu88imfk42krfgx8b6bt.jpg",
     "category": "fathers"
+  },
+  {
+    "title": "Father’s Day",
+    "description": "Father’s Day",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783124/cjfy459pcgr8nezkoohy.jpg",
+    "category": "fathers"
+  },
+  {
+    "title": "Anniversary",
+    "description": "Anniversary",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783187/notzdq0eutgelqxvzmao.jpg",
+    "category": "anniversary"
+  },
+  {
+    "title": "Anniversary",
+    "description": "Anniversary",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783248/zudqn4dbgkvpmgb4g2nj.jpg",
+    "category": "anniversary"
+  },
+  {
+    "title": "Anniversary",
+    "description": "Anniversary",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783295/hxl6kopg0vkfuvzrpm8y.jpg",
+    "category": "anniversary"
+  },
+  {
+    "title": "Anniversary",
+    "description": "Anniversary",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783322/t5xk44qc4rp5haggfehp.jpg",
+    "category": "anniversary"
+  },
+  {
+    "title": "Anniversary",
+    "description": "Anniversary",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783344/dmjzpct03hc70ocuilll.jpg",
+    "category": "anniversary"
+  },
+  {
+    "title": "Anniversary",
+    "description": "Anniversary",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783369/ernvk04kdrkykzgrtfnk.jpg",
+    "category": "anniversary"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783407/r2aamnox5ksedctqtu9q.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783437/izkmruj8dwrwgdsgcbip.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783461/itwlffj4tajygehzw1bm.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783483/ird0i6ib32r82ydjgh3k.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783506/n8rlknyt8rlkce0ijmlp.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783533/sx1brg0rpgxg2tzfw2in.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783591/dv1gq1yzmwkym9iksqyf.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783608/rermqaam2znhcncfzfcc.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783638/nmyvqjbity1ifirvxqrw.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783654/z4z0xvmgefstqtivg2f9.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783671/p6azm4eh5cmqts104k1x.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783690/rbjbrelfzotzeps0t0ni.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783707/s5s85tl6mwrat9zu95uy.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783729/wqzo1qmasw1gejb8hc52.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783749/bkirf7m0uuk5ezwgt7b3.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783766/fufpzdn40277rzfhkcid.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783784/a2xijhydwstpfwf7eeck.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783805/vfigjobmf5u1kfzmwnfu.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783829/ein8wpwzxcgemkfclbo8.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Birthday",
+    "description": "Birthday",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783848/zabblksjsthhxjpbbjmv.jpg",
+    "category": "birthday"
+  },
+  {
+    "title": "Cupcakes",
+    "description": "Cupcakes",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783867/bkfhbxvn1wxdpbi6a39z.jpg",
+    "category": "cupcakes"
+  },
+  {
+    "title": "Cupcakes",
+    "description": "Cupcakes",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783898/puxcxlx9xslnkf3joguy.jpg",
+    "category": "cupcakes"
+  },
+  {
+    "title": "Cupcakes",
+    "description": "Cupcakes",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783917/pzqp74ftb1ow5btmdera.jpg",
+    "category": "cupcakes"
+  },
+  {
+    "title": "Cupcakes",
+    "description": "Cupcakes",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783939/uen0msvtw14tnrzb8rhq.jpg",
+    "category": "cupcakes"
+  },
+  {
+    "title": "Cupcakes",
+    "description": "Cupcakes",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783960/x4ocudrmk8kehzwqo5al.jpg",
+    "category": "cupcakes"
+  },
+  {
+    "title": "Custom Designs",
+    "description": "Custom Designs",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781783982/ijdp9psjm0tilgqzls9k.jpg",
+    "category": "custom"
+  },
+  {
+    "title": "Custom Designs",
+    "description": "Custom Designs",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784008/rkesdlj6fggpg0qqcbhe.jpg",
+    "category": "custom"
+  },
+  {
+    "title": "Custom Designs",
+    "description": "Custom Designs",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784026/v6bl32a9tocb8qjebrpy.jpg",
+    "category": "custom"
+  },
+  {
+    "title": "Custom Designs",
+    "description": "Custom Designs",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784048/o9da4uoevei2fcbukjr2.jpg",
+    "category": "custom"
+  },
+  {
+    "title": "Custom Designs",
+    "description": "Custom Designs",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784075/q4lf8xxo91tlz7urkppo.jpg",
+    "category": "custom"
+  },
+  {
+    "title": "Seasonal / Festive",
+    "description": "Seasonal / Festive",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784117/kahdkdj8g9bj0jmfdzvl.jpg",
+    "category": "seasonal"
+  },
+  {
+    "title": "Seasonal / Festive",
+    "description": "Seasonal / Festive",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784151/ptbfetdnhvckxhdvcuqc.jpg",
+    "category": "seasonal"
+  },
+  {
+    "title": "Congratulations / Well Done",
+    "description": "Congratulations / Well Done",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784173/jbmebb9ajz69vjxu42mp.jpg",
+    "category": "well_done"
+  },
+  {
+    "title": "Congratulations / Well Done",
+    "description": "Congratulations / Well Done",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784216/itmsnchpssdb1qlxz2b6.jpg",
+    "category": "well_done"
+  },
+  {
+    "title": "Mother's Day",
+    "description": "Mother's Day",
+    "image": "https://res.cloudinary.com/dv9tuxwbd/image/upload/v1781784242/izbzcgxk4hionex4qjvw.jpg",
+    "category": "mothers"
   }
 ]
