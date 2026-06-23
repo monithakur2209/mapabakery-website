@@ -523,68 +523,107 @@
       if(e.key === 'Escape' && modal.style.display === 'flex') closeModal();
     });
 
-    /* ---------------------------
-       Simple form handlers (demo)
-       --------------------------- */
-    (function attachFormHandlers(){
-      // Guest order
-      const guestOrderForm = document.getElementById("guestOrderForm");
-      const guestOrderStatus = document.getElementById("guestOrderStatus");
-      guestOrderForm.addEventListener("submit", function(e){
-        e.preventDefault();
-        const formData = new FormData(guestOrderForm);
-        const name = formData.get("guestName");
-        const item = formData.get("item");
-        const date = formData.get("date");
-        if(!name || !item || !date){
-          guestOrderStatus.textContent = "Please fill in all required fields.";
-          guestOrderStatus.className = "status error";
-          return;
-        }
-        guestOrderStatus.textContent = "Order received! We’ll email you a secure payment link shortly.";
-        guestOrderStatus.className = "status success";
-        guestOrderForm.reset();
-      });
+<script>
+/* ---------------------------
+   Form Handlers (Clean Version)
+   --------------------------- */
+(function attachFormHandlers(){
 
-      // Login
-      const loginForm = document.getElementById("loginForm");
-      const loginStatus = document.getElementById("loginStatus");
-      loginForm.addEventListener("submit", function(e){
-        e.preventDefault();
-        const formData = new FormData(loginForm);
-        const email = formData.get("loginEmail");
-        const password = formData.get("loginPassword");
-        if(!email || !password){
-          loginStatus.textContent = "Please enter your email and password.";
-          loginStatus.className = "status error";
-          return;
-        }
-        loginStatus.textContent = "Demo login only. Connect this form to your authentication backend.";
-        loginStatus.className = "status success";
-      });
+  /* ---------------------------
+     LOGIN FORM (unchanged)
+     --------------------------- */
+  const loginForm = document.getElementById("loginForm");
+  const loginStatus = document.getElementById("loginStatus");
 
-      // Signup
-      const signupForm = document.getElementById("signupForm");
-      const signupStatus = document.getElementById("signupStatus");
-      signupForm.addEventListener("submit", function(e){
-        e.preventDefault();
-        const formData = new FormData(signupForm);
-        const name = formData.get("signupName");
-        const email = formData.get("signupEmail");
-        const password = formData.get("signupPassword");
-        if(!name || !email || !password){
-          signupStatus.textContent = "Please fill in all fields.";
-          signupStatus.className = "status error";
-          return;
-        }
-        signupStatus.textContent = "Account created (demo). In production, securely store hashed passwords on the server.";
-        signupStatus.className = "status success";
-        signupForm.reset();
-      });
-    })();
+  loginForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const formData = new FormData(loginForm);
+    const email = formData.get("loginEmail");
+    const password = formData.get("loginPassword");
 
-    // Initialize gallery on load
-    loadCategoryGallery();
-  </script>
+    if(!email || !password){
+      loginStatus.textContent = "Please enter your email and password.";
+      loginStatus.className = "status error";
+      return;
+    }
+
+    loginStatus.textContent = "Demo login only. Connect this form to your authentication backend.";
+    loginStatus.className = "status success";
+  });
+
+  /* ---------------------------
+     SIGNUP FORM (unchanged)
+     --------------------------- */
+  const signupForm = document.getElementById("signupForm");
+  const signupStatus = document.getElementById("signupStatus");
+
+  signupForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const formData = new FormData(signupForm);
+    const name = formData.get("signupName");
+    const email = formData.get("signupEmail");
+    const password = formData.get("signupPassword");
+
+    if(!name || !email || !password){
+      signupStatus.textContent = "Please fill in all fields.";
+      signupStatus.className = "status error";
+      return;
+    }
+
+    signupStatus.textContent = "Account created (demo). In production, securely store hashed passwords on the server.";
+    signupStatus.className = "status success";
+    signupForm.reset();
+  });
+
+})(); // END attachFormHandlers
+
+// Initialize gallery on load
+loadCategoryGallery();
+</script>
+
+<!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<!-- EmailJS Init -->
+<script>
+(function() {
+    emailjs.init("QUhzeSi-dESyLL0tv");
+})();
+</script>
+
+<!-- FINAL Guest Order Handler -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const guestOrderForm = document.getElementById("guestOrderForm");
+  const guestOrderStatus = document.getElementById("guestOrderStatus");
+
+  guestOrderForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.send("service_ggmkbor", "template_pn7i4o4", {
+      guestName: document.getElementById("guestName").value,
+      guestPhone: document.getElementById("guestPhone").value,
+      guestEmail: document.getElementById("guestEmail").value,
+      item: document.getElementById("item").value,
+      size: document.getElementById("size").value,
+      date: document.getElementById("date").value,
+      notes: document.getElementById("notes").value
+    })
+    .then(() => {
+      guestOrderStatus.textContent =
+        "Thank you! Your order has been submitted. We will contact you shortly.";
+      guestOrderStatus.className = "status success";
+      guestOrderForm.reset();
+    })
+    .catch(() => {
+      guestOrderStatus.textContent =
+        "There was an issue submitting your order. Please try again.";
+      guestOrderStatus.className = "status error";
+    });
+  });
+
+});
+</script>
 </body>
 </html>
