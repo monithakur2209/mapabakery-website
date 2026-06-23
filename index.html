@@ -597,51 +597,39 @@
     // Initialize gallery on load
     loadCategoryGallery();
   </script>
-  <script>
-document.getElementById("guestOrderForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  <!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-    const formData = new FormData(this);
-
-    fetch("send_order.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(res => res.text())
-    .then(data => {
-        if (data.trim() === "success") {
-            document.getElementById("guestOrderStatus").innerHTML =
-                "Thank you! Your order has been submitted. We will contact you shortly.";
-            document.getElementById("guestOrderForm").reset();
-        } else {
-            document.getElementById("guestOrderStatus").innerHTML =
-                "There was an issue submitting your order. Please try again.";
-        }
-    })
-    .catch(() => {
-        document.getElementById("guestOrderStatus").innerHTML =
-            "Network error. Please try again.";
-    });
-});
-</script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<!-- EmailJS Init -->
 <script>
 (function() {
-    emailjs.init("QUhzeSi-dESyLL0tv"); // Replace with your EmailJS public key
+    emailjs.init("QUhzeSi-dESyLL0tv"); // Your EmailJS public key
 })();
 </script>
-  <script>
+
+<!-- Guest Order Form Handler (ONLY ONE) -->
+<script>
 document.getElementById("guestOrderForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    // Collect form values
+    const guestName = document.getElementById("guestName").value;
+    const guestPhone = document.getElementById("guestPhone").value;
+    const guestEmail = document.getElementById("guestEmail").value;
+    const item = document.getElementById("item").value;
+    const size = document.getElementById("size").value;
+    const date = document.getElementById("date").value;
+    const notes = document.getElementById("notes").value;
+
+    // Send email via EmailJS
     emailjs.send("service_ggmkbor", "template_pn7i4o4", {
-        guestName: document.getElementById("guestName").value,
-        guestPhone: document.getElementById("guestPhone").value,
-        guestEmail: document.getElementById("guestEmail").value,
-        item: document.getElementById("item").value,
-        size: document.getElementById("size").value,
-        date: document.getElementById("date").value,
-        notes: document.getElementById("notes").value
+        guestName: guestName,
+        guestPhone: guestPhone,
+        guestEmail: guestEmail,
+        item: item,
+        size: size,
+        date: date,
+        notes: notes
     })
     .then(function() {
         document.getElementById("guestOrderStatus").innerHTML =
