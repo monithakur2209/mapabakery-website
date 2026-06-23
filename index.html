@@ -74,6 +74,46 @@ header{
     .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
 
     main{max-width:1100px;margin:0 auto;padding:1.5rem}
+    /* Hero two-column layout */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 80px; /* keeps spacing under fixed header */
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-right {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
+}
+
+.hero-logo {
+  width: 220px;
+  border-radius: 12px;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-right {
+    text-align: center;
+  }
+}
+
 
     /* Hero */
     .hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:2rem}
@@ -196,22 +236,32 @@ header{
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    main{
-  padding-top:80px; /* adjust if header height changes */
-}
-    <img src="mapa-logo.png" alt="MAPA Bakery Logo" 
-    style="width:180px; margin-bottom:1.2rem; border-radius:12px;">
-    
-    <section id="home" class="hero">
-      <div class="hero-text">
+ <main>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+
+      <!-- LEFT: Logo -->
+      <div class="hero-left">
+        <img src="mapa-logo.png" alt="MAPA Bakery Logo" class="hero-logo">
+      </div>
+
+      <!-- RIGHT: Text -->
+      <div class="hero-right">
         <h1>Bites of Happiness, Delivered.</h1>
         <p>
-          At MAPA Bakery, we craft Cakes that delight both the eye and the taste buds. Choose from egg or eggless options, custom designs, and beautifully decorated creations made with fresh cream and your preferred sponge. Order online as a guest or create an account to track your favourites. For picture-based decorations, kindly place your order at least one week in advance so we can prepare the design.
+          At MAPA Bakery, we craft cakes that delight both the eyes and the taste buds. 
+          Choose from egg or eggless options, custom designs, and beautifully decorated 
+          creations made with fresh cream and your preferred sponge. For picture‑based 
+          decorations, kindly place your order at least one week in advance so we can 
+          prepare the design.
         </p>
       </div>
-    </section>
+
+    </div>
+  </section>
+
 
     <!-- Gallery (Category-wise) -->
     <section id="gallery">
