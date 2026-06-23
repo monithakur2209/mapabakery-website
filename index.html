@@ -586,5 +586,32 @@
     // Initialize gallery on load
     loadCategoryGallery();
   </script>
+  <script>
+document.getElementById("guestOrderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch("send_order.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data.trim() === "success") {
+            document.getElementById("guestOrderStatus").innerHTML =
+                "Thank you! Your order has been submitted. We will contact you shortly.";
+            document.getElementById("guestOrderForm").reset();
+        } else {
+            document.getElementById("guestOrderStatus").innerHTML =
+                "There was an issue submitting your order. Please try again.";
+        }
+    })
+    .catch(() => {
+        document.getElementById("guestOrderStatus").innerHTML =
+            "Network error. Please try again.";
+    });
+});
+</script>
 </body>
 </html>
