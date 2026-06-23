@@ -218,101 +218,112 @@
     </section>
 
     <!-- Order + Guest Checkout -->
-    <section id="order">
-      <h2>Place an Order</h2>
-      <p class="section-intro">
-        You can order as a guest or log in for a faster checkout and order history.
-      </p>
-      <div class="two-column">
-        <!-- Guest order -->
-        <div class="card">
-          <h3>Guest Checkout</h3>
-          <p>No account needed. Just fill in your details and we’ll confirm your order.</p>
-          <form id="guestOrderForm">
-            <div class="inline">
-              <div>
-                <label for="guestName">Full Name</label>
-                <input type="text" id="guestName" name="guestName" required />
-              </div>
-              <div>
-                <label for="guestPhone">Phone</label>
-                <input type="tel" id="guestPhone" name="guestPhone" required />
-              </div>
-            </div>
+<section id="order">
+  <h2>Place an Order</h2>
+  <p class="section-intro">
+    You can order as a guest or log in for a faster checkout and order history.
+  </p>
 
-            <label for="guestEmail">Email (for confirmation)</label>
-            <input type="email" id="guestEmail" name="guestEmail" required />
+  <div class="two-column">
 
-            <label for="item">Select Item</label>
-            <select id="item" name="item" required>
-              <option value="">Choose an item</option>
-              <option value="chocolate_cake">Chocolate Cake</option>
-              <option value="vanilla_cake">Vanilla Cake</option>
-              <option value="butterscotch_cake">Butterscotch Cake</option>
-              <option value="cupcake_box_12">Assorted Cupcake Box (12)</option>
-              <option value="cupcake_box_6">Assorted Cupcake Box (6)</option>
-              <option value="custom">Custom Design (we’ll contact you)</option>
+    <!-- Guest order -->
+    <div class="card">
+      <h3>Guest Checkout</h3>
+      <p>No account needed. Just fill in your details and we’ll confirm your order.</p>
+
+      <form id="guestOrderForm">
+
+        <div class="inline">
+          <div>
+            <label for="guestName">Full Name</label>
+            <input type="text" id="guestName" name="guestName" required />
+          </div>
+
+          <div>
+            <label for="guestPhone">Phone</label>
+            <input type="tel" id="guestPhone" name="guestPhone" required />
+          </div>
+        </div>
+
+        <label for="guestEmail">Email (for confirmation)</label>
+        <input type="email" id="guestEmail" name="guestEmail" required />
+
+        <label for="item">Select Item</label>
+        <select id="item" name="item" required>
+          <option value="">Choose an item</option>
+          <option value="chocolate_cake">Chocolate Cake</option>
+          <option value="vanilla_cake">Vanilla Cake</option>
+          <option value="butterscotch_cake">Butterscotch Cake</option>
+          <option value="cupcake_box_12">Assorted Cupcake Box (12)</option>
+          <option value="cupcake_box_6">Assorted Cupcake Box (6)</option>
+          <option value="custom">Custom Design (we’ll contact you)</option>
+        </select>
+
+        <div class="inline">
+          <div>
+            <label for="size">Size</label>
+            <select id="size" name="size" required>
+              <option value="">Select size</option>
+              <option value="0.5kg">0.5 kg</option>
+              <option value="1kg">1 kg</option>
+              <option value="2kg">2 kg</option>
             </select>
+          </div>
 
-            <div class="inline">
-              <div>
-                <label for="size">Size</label>
-                <select id="size" name="size" required>
-                  <option value="">Select size</option>
-                  <option value="0.5kg">0.5 kg</option>
-                  <option value="1kg">1 kg</option>
-                  <option value="2kg">2 kg</option>
-                </select>
-              </div>
-              <div>
-                <label for="date">Pickup/Delivery Date</label>
-                <input type="date" id="date" name="date" required />
-              </div>
-            </div>
-
-            <label for="notes">Notes (message on cake, allergies, etc.)</label>
-            <textarea id="notes" name="notes" placeholder="E.g., Happy Birthday Aanya, no nuts."></textarea>
-
-            <button type="submit" class="btn-primary">Review &amp; Confirm</button>
-            <div id="guestOrderStatus" class="status" aria-live="polite"></div>
-          </form>
+          <div>
+            <label for="date">Pickup/Delivery Date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
         </div>
 
-        <!-- Login / Account -->
-        <div class="card" id="login">
-          <h3>Login</h3>
-          <p>Log in to view your saved details and past orders.</p>
-          <form id="loginForm">
-            <label for="loginEmail">Email</label>
-            <input type="email" id="loginEmail" name="loginEmail" required />
+        <label for="notes">Notes (message on cake, allergies, etc.)</label>
+        <textarea id="notes" name="notes" placeholder="E.g., Happy Birthday Aanya, no nuts."></textarea>
 
-            <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" name="loginPassword" required />
+        <button type="submit" class="btn-primary">Review &amp; Confirm</button>
+        <div id="guestOrderStatus" class="status" aria-live="polite"></div>
 
-            <button type="submit" class="btn-primary">Login</button>
-            <div id="loginStatus" class="status" aria-live="polite"></div>
-          </form>
+      </form>
+    </div>
 
-          <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;" />
+    <!-- Login / Account -->
+    <div class="card" id="login">
+      <h3>Login</h3>
+      <p>Log in to view your saved details and past orders.</p>
 
-          <h3>Create an Account</h3>
-          <p>Save your details for faster checkout next time.</p>
-          <form id="signupForm">
-            <label for="signupName">Full Name</label>
-            <input type="text" id="signupName" name="signupName" required />
+      <form id="loginForm">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="loginEmail" required />
 
-            <label for="signupEmail">Email</label>
-            <input type="email" id="signupEmail" name="signupEmail" required />
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="loginPassword" required />
 
-            <label for="signupPassword">Password</label>
-            <input type="password" id="signupPassword" name="signupPassword" required />
+        <button type="submit" class="btn-primary">Login</button>
+        <div id="loginStatus" class="status" aria-live="polite"></div>
+      </form>
 
-            <button type="submit" class="btn-primary">Sign Up</button>
-            <div id="signupStatus" class="status" aria-live="polite"></div>
-          </form>
-        </div>
-      </div>
-    </section>
+      <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;" />
+
+      <h3>Create an Account</h3>
+      <p>Save your details for faster checkout next time.</p>
+
+      <form id="signupForm">
+        <label for="signupName">Full Name</label>
+        <input type="text" id="signupName" name="signupName" required />
+
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" name="signupEmail" required />
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" name="signupPassword" required />
+
+        <button type="submit" class="btn-primary">Sign Up</button>
+        <div id="signupStatus" class="status" aria-live="polite"></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Security / Trust -->
     <section id="trust">
