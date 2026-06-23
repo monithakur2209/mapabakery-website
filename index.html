@@ -29,13 +29,15 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    header{
-      background:#fff;
-      box-shadow:var(--shadow);
-      position:sticky;
-      top:0;
-      z-index:20;
-    }
+header{
+  background:#fff;
+  box-shadow:var(--shadow);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+}
 
     .nav{
       max-width:1100px;
@@ -196,6 +198,12 @@
 
   <main>
     <!-- Hero -->
+    main{
+  padding-top:80px; /* adjust if header height changes */
+}
+    <img src="images/mapa-logo.png" alt="MAPA Bakery Logo" 
+     style="width:160px; margin-bottom:1rem;">
+    
     <section id="home" class="hero">
       <div class="hero-text">
         <h1>Bites of Happiness, Delivered.</h1>
@@ -371,11 +379,21 @@
     </section>
   </main>
 
-  <footer>
-    &copy; <span id="year"></span> MAPA Bakery. All rights reserved.
-    <br />
-    Built with love and secure-by-design principles.
-  </footer>
+<footer>
+  &copy; <span id="year"></span> MAPA Bakery. All rights reserved.
+  <br />
+  Built with love and secure-by-design principles.
+  <br /><br />
+
+  <a href="https://www.facebook.com/profile.php?id=100035319914123" target="_blank" style="margin-right:10px;">
+    Facebook
+  </a>
+
+  <a href="https://www.instagram.com/MAPAbakers" target="_blank">
+    Instagram
+  </a>
+</footer>
+
 
   <!-- Image Modal -->
   <div id="imageModal" aria-hidden="true" style="
