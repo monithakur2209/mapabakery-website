@@ -537,108 +537,101 @@
     /* ---------------------------
        Simple form handlers (demo)
        --------------------------- */
-    (function attachFormHandlers(){
-      // Guest order
-      const guestOrderForm = document.getElementById("guestOrderForm");
-      const guestOrderStatus = document.getElementById("guestOrderStatus");
-      guestOrderForm.addEventListener("submit", function(e){
-        e.preventDefault();
-        const formData = new FormData(guestOrderForm);
-        const name = formData.get("guestName");
-        const item = formData.get("item");
-        const date = formData.get("date");
-        if(!name || !item || !date){
-          guestOrderStatus.textContent = "Please fill in all required fields.";
-          guestOrderStatus.className = "status error";
-          return;
-        }
-        guestOrderStatus.textContent = "Order received! We’ll email you a secure payment link shortly.";
-        guestOrderStatus.className = "status success";
-        guestOrderForm.reset();
-      });
+    <!-- REMOVE your entire old demo handler block and replace it with this -->
 
-      // Login
-      const loginForm = document.getElementById("loginForm");
-      const loginStatus = document.getElementById("loginStatus");
-      loginForm.addEventListener("submit", function(e){
+<script>
+// Initialize gallery on load
+loadCategoryGallery();
+
+// EmailJS Library
+</script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+// EmailJS Init
+(function() {
+    emailjs.init("QUhzeSi-dESyLL0tv");
+})();
+</script>
+
+<script>
+// FINAL Guest Order Handler (ONLY ONE)
+document.addEventListener("DOMContentLoaded", function () {
+
+    const guestOrderForm = document.getElementById("guestOrderForm");
+    const guestOrderStatus = document.getElementById("guestOrderStatus");
+
+    guestOrderForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        // Collect form values
+        const guestName = document.getElementById("guestName").value;
+        const guestPhone = document.getElementById("guestPhone").value;
+        const guestEmail = document.getElementById("guestEmail").value;
+        const item = document.getElementById("item").value;
+        const size = document.getElementById("size").value;
+        const date = document.getElementById("date").value;
+        const notes = document.getElementById("notes").value;
+
+        // Send email via EmailJS
+        emailjs.send("service_ggmkbor", "template_pn7i4o4", {
+            guestName: guestName,
+            guestPhone: guestPhone,
+            guestEmail: guestEmail,
+            item: item,
+            size: size,
+            date: date,
+            notes: notes
+        })
+        .then(() => {
+            guestOrderStatus.textContent =
+                "Thank you! Your order has been submitted. We will contact you shortly.";
+            guestOrderStatus.className = "status success";
+            guestOrderForm.reset();
+        })
+        .catch(() => {
+            guestOrderStatus.textContent =
+                "There was an issue submitting your order. Please try again.";
+            guestOrderStatus.className = "status error";
+        });
+    });
+
+    // Login handler (unchanged)
+    const loginForm = document.getElementById("loginForm");
+    const loginStatus = document.getElementById("loginStatus");
+    loginForm.addEventListener("submit", function(e){
         e.preventDefault();
         const formData = new FormData(loginForm);
         const email = formData.get("loginEmail");
         const password = formData.get("loginPassword");
         if(!email || !password){
-          loginStatus.textContent = "Please enter your email and password.";
-          loginStatus.className = "status error";
-          return;
+            loginStatus.textContent = "Please enter your email and password.";
+            loginStatus.className = "status error";
+            return;
         }
         loginStatus.textContent = "Demo login only. Connect this form to your authentication backend.";
         loginStatus.className = "status success";
-      });
+    });
 
-      // Signup
-      const signupForm = document.getElementById("signupForm");
-      const signupStatus = document.getElementById("signupStatus");
-      signupForm.addEventListener("submit", function(e){
+    // Signup handler (unchanged)
+    const signupForm = document.getElementById("signupForm");
+    const signupStatus = document.getElementById("signupStatus");
+    signupForm.addEventListener("submit", function(e){
         e.preventDefault();
         const formData = new FormData(signupForm);
         const name = formData.get("signupName");
         const email = formData.get("signupEmail");
         const password = formData.get("signupPassword");
         if(!name || !email || !password){
-          signupStatus.textContent = "Please fill in all fields.";
-          signupStatus.className = "status error";
-          return;
+            signupStatus.textContent = "Please fill in all fields.";
+            signupStatus.className = "status error";
+            return;
         }
         signupStatus.textContent = "Account created (demo). In production, securely store hashed passwords on the server.";
         signupStatus.className = "status success";
         signupForm.reset();
-      });
-    })();
-
-    // Initialize gallery on load
-    loadCategoryGallery();
-  </script>
-  <!-- EmailJS Library -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<!-- EmailJS Init -->
-<script>
-(function() {
-    emailjs.init("QUhzeSi-dESyLL0tv"); // Your EmailJS public key
-})();
-</script>
-
-<!-- Guest Order Form Handler (ONLY ONE) -->
-<script>
-document.getElementById("guestOrderForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    // Collect form values
-    const guestName = document.getElementById("guestName").value;
-    const guestPhone = document.getElementById("guestPhone").value;
-    const guestEmail = document.getElementById("guestEmail").value;
-    const item = document.getElementById("item").value;
-    const size = document.getElementById("size").value;
-    const date = document.getElementById("date").value;
-    const notes = document.getElementById("notes").value;
-
-    // Send email via EmailJS
-    emailjs.send("service_ggmkbor", "template_pn7i4o4", {
-        guestName: guestName,
-        guestPhone: guestPhone,
-        guestEmail: guestEmail,
-        item: item,
-        size: size,
-        date: date,
-        notes: notes
-    })
-    .then(function() {
-        document.getElementById("guestOrderStatus").innerHTML =
-            "Thank you! Your order has been submitted. We will contact you shortly.";
-        document.getElementById("guestOrderForm").reset();
-    }, function(error) {
-        document.getElementById("guestOrderStatus").innerHTML =
-            "There was an issue submitting your order. Please try again.";
     });
+
 });
 </script>
 </body>
