@@ -74,33 +74,61 @@ header{
     .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
 
     main{max-width:1100px;margin:0 auto;padding:1.5rem}
-    /* Hero two-column layout */
+    
+    .hero-container {
+  max-width: 1100px;   /* aligns with rest of page */
+  margin: 0 auto;      /* centers the whole block */
+  padding-top: 80px;   /* spacing under fixed header */
+}
+
+   /* Hero two-column layout (improved alignment) */
 .hero-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  padding-top: 80px; /* keeps spacing under fixed header */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 80px;
 }
 
 .hero-left {
   flex: 1;
   min-width: 250px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-right {
   flex: 1;
   min-width: 280px;
   text-align: left;
+  padding-top: 10px;
 }
 
 .hero-logo {
   width: 220px;
   border-radius: 12px;
 }
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-right {
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .hero-left {
+    justify-content: center;
+  }
+}
+
 
 /* Mobile layout */
 @media (max-width: 768px) {
