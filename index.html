@@ -218,112 +218,101 @@
     </section>
 
     <!-- Order + Guest Checkout -->
-<section id="order">
-  <h2>Place an Order</h2>
-  <p class="section-intro">
-    You can order as a guest or log in for a faster checkout and order history.
-  </p>
+    <section id="order">
+      <h2>Place an Order</h2>
+      <p class="section-intro">
+        You can order as a guest or log in for a faster checkout and order history.
+      </p>
+      <div class="two-column">
+        <!-- Guest order -->
+        <div class="card">
+          <h3>Guest Checkout</h3>
+          <p>No account needed. Just fill in your details and we’ll confirm your order.</p>
+          <form id="guestOrderForm">
+            <div class="inline">
+              <div>
+                <label for="guestName">Full Name</label>
+                <input type="text" id="guestName" name="guestName" required />
+              </div>
+              <div>
+                <label for="guestPhone">Phone</label>
+                <input type="tel" id="guestPhone" name="guestPhone" required />
+              </div>
+            </div>
 
-  <div class="two-column">
+            <label for="guestEmail">Email (for confirmation)</label>
+            <input type="email" id="guestEmail" name="guestEmail" required />
 
-    <!-- Guest order -->
-    <div class="card">
-      <h3>Guest Checkout</h3>
-      <p>No account needed. Just fill in your details and we’ll confirm your order.</p>
-
-      <form id="guestOrderForm">
-
-        <div class="inline">
-          <div>
-            <label for="guestName">Full Name</label>
-            <input type="text" id="guestName" name="guestName" required />
-          </div>
-
-          <div>
-            <label for="guestPhone">Phone</label>
-            <input type="tel" id="guestPhone" name="guestPhone" required />
-          </div>
-        </div>
-
-        <label for="guestEmail">Email (for confirmation)</label>
-        <input type="email" id="guestEmail" name="guestEmail" required />
-
-        <label for="item">Select Item</label>
-        <select id="item" name="item" required>
-          <option value="">Choose an item</option>
-          <option value="chocolate_cake">Chocolate Cake</option>
-          <option value="vanilla_cake">Vanilla Cake</option>
-          <option value="butterscotch_cake">Butterscotch Cake</option>
-          <option value="cupcake_box_12">Assorted Cupcake Box (12)</option>
-          <option value="cupcake_box_6">Assorted Cupcake Box (6)</option>
-          <option value="custom">Custom Design (we’ll contact you)</option>
-        </select>
-
-        <div class="inline">
-          <div>
-            <label for="size">Size</label>
-            <select id="size" name="size" required>
-              <option value="">Select size</option>
-              <option value="0.5kg">0.5 kg</option>
-              <option value="1kg">1 kg</option>
-              <option value="2kg">2 kg</option>
+            <label for="item">Select Item</label>
+            <select id="item" name="item" required>
+              <option value="">Choose an item</option>
+              <option value="chocolate_cake">Chocolate Cake</option>
+              <option value="vanilla_cake">Vanilla Cake</option>
+              <option value="butterscotch_cake">Butterscotch Cake</option>
+              <option value="cupcake_box_12">Assorted Cupcake Box (12)</option>
+              <option value="cupcake_box_6">Assorted Cupcake Box (6)</option>
+              <option value="custom">Custom Design (we’ll contact you)</option>
             </select>
-          </div>
 
-          <div>
-            <label for="date">Pickup/Delivery Date</label>
-            <input type="date" id="date" name="date" required />
-          </div>
+            <div class="inline">
+              <div>
+                <label for="size">Size</label>
+                <select id="size" name="size" required>
+                  <option value="">Select size</option>
+                  <option value="0.5kg">0.5 kg</option>
+                  <option value="1kg">1 kg</option>
+                  <option value="2kg">2 kg</option>
+                </select>
+              </div>
+              <div>
+                <label for="date">Pickup/Delivery Date</label>
+                <input type="date" id="date" name="date" required />
+              </div>
+            </div>
+
+            <label for="notes">Notes (message on cake, allergies, etc.)</label>
+            <textarea id="notes" name="notes" placeholder="E.g., Happy Birthday Aanya, no nuts."></textarea>
+
+            <button type="submit" class="btn-primary">Review &amp; Confirm</button>
+            <div id="guestOrderStatus" class="status" aria-live="polite"></div>
+          </form>
         </div>
 
-        <label for="notes">Notes (message on cake, allergies, etc.)</label>
-        <textarea id="notes" name="notes" placeholder="E.g., Happy Birthday Aanya, no nuts."></textarea>
+        <!-- Login / Account -->
+        <div class="card" id="login">
+          <h3>Login</h3>
+          <p>Log in to view your saved details and past orders.</p>
+          <form id="loginForm">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="loginEmail" required />
 
-        <button type="submit" class="btn-primary">Review &amp; Confirm</button>
-        <div id="guestOrderStatus" class="status" aria-live="polite"></div>
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="loginPassword" required />
 
-      </form>
-    </div>
+            <button type="submit" class="btn-primary">Login</button>
+            <div id="loginStatus" class="status" aria-live="polite"></div>
+          </form>
 
-    <!-- Login / Account -->
-    <div class="card" id="login">
-      <h3>Login</h3>
-      <p>Log in to view your saved details and past orders.</p>
+          <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;" />
 
-      <form id="loginForm">
-        <label for="loginEmail">Email</label>
-        <input type="email" id="loginEmail" name="loginEmail" required />
+          <h3>Create an Account</h3>
+          <p>Save your details for faster checkout next time.</p>
+          <form id="signupForm">
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" name="signupName" required />
 
-        <label for="loginPassword">Password</label>
-        <input type="password" id="loginPassword" name="loginPassword" required />
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="signupEmail" required />
 
-        <button type="submit" class="btn-primary">Login</button>
-        <div id="loginStatus" class="status" aria-live="polite"></div>
-      </form>
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="signupPassword" required />
 
-      <hr style="margin: 1.2rem 0; border: none; border-top: 1px solid #eee;" />
-
-      <h3>Create an Account</h3>
-      <p>Save your details for faster checkout next time.</p>
-
-      <form id="signupForm">
-        <label for="signupName">Full Name</label>
-        <input type="text" id="signupName" name="signupName" required />
-
-        <label for="signupEmail">Email</label>
-        <input type="email" id="signupEmail" name="signupEmail" required />
-
-        <label for="signupPassword">Password</label>
-        <input type="password" id="signupPassword" name="signupPassword" required />
-
-        <button type="submit" class="btn-primary">Sign Up</button>
-        <div id="signupStatus" class="status" aria-live="polite"></div>
-      </form>
-    </div>
-
-  </div>
-</section>
-
+            <button type="submit" class="btn-primary">Sign Up</button>
+            <div id="signupStatus" class="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <!-- Security / Trust -->
     <section id="trust">
@@ -537,7 +526,7 @@
     /* ---------------------------
        Simple form handlers (demo)
        --------------------------- */
-(function attachFormHandlers(){
+    (function attachFormHandlers(){
       // Guest order
       const guestOrderForm = document.getElementById("guestOrderForm");
       const guestOrderStatus = document.getElementById("guestOrderStatus");
@@ -597,49 +586,5 @@
     // Initialize gallery on load
     loadCategoryGallery();
   </script>
-  <!-- EmailJS Library -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<!-- EmailJS Init -->
-<script>
-(function() {
-    emailjs.init("QUhzeSi-dESyLL0tv"); // Your EmailJS public key
-})();
-</script>
-
-<!-- Guest Order Form Handler (ONLY ONE) -->
-<script>
-document.getElementById("guestOrderForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    // Collect form values
-    const guestName = document.getElementById("guestName").value;
-    const guestPhone = document.getElementById("guestPhone").value;
-    const guestEmail = document.getElementById("guestEmail").value;
-    const item = document.getElementById("item").value;
-    const size = document.getElementById("size").value;
-    const date = document.getElementById("date").value;
-    const notes = document.getElementById("notes").value;
-
-    // Send email via EmailJS
-    emailjs.send("service_ggmkbor", "template_pn7i4o4", {
-        guestName: guestName,
-        guestPhone: guestPhone,
-        guestEmail: guestEmail,
-        item: item,
-        size: size,
-        date: date,
-        notes: notes
-    })
-    .then(function() {
-        document.getElementById("guestOrderStatus").innerHTML =
-            "Thank you! Your order has been submitted. We will contact you shortly.";
-        document.getElementById("guestOrderForm").reset();
-    }, function(error) {
-        document.getElementById("guestOrderStatus").innerHTML =
-            "There was an issue submitting your order. Please try again.";
-    });
-});
-</script>
 </body>
 </html>
