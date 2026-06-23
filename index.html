@@ -189,7 +189,7 @@
         <a onclick="scrollToSection('home')">Home</a>
         <a onclick="scrollToSection('gallery')">Gallery</a>
         <a onclick="scrollToSection('order')">Order</a>
-        <a onclick="scrollToSection('login')">Login</a>
+       <!-- <a onclick="scrollToSection('login')">Login</a> --->
       </nav>
     </div>
   </header>
@@ -219,7 +219,7 @@
     <section id="order">
       <h2>Place an Order</h2>
       <p class="section-intro">
-        You can order as a guest or log in for a faster checkout and order history.
+        Order as a guest.
       </p>
       <div class="two-column">
         <!-- Guest order -->
@@ -278,7 +278,7 @@
         </div>
 
         <!-- Login / Account -->
-        <div class="card" id="login">
+       <!-- <div class="card" id="login">
           <h3>Login</h3>
           <p>Log in to view your saved details and past orders.</p>
           <form id="loginForm">
@@ -310,7 +310,33 @@
             <div id="signupStatus" class="status" aria-live="polite"></div>
           </form>
         </div>
-      </div>
+      </div> -->
+        <div class="card">
+  <h3>Cake Sizes & Serving Guide</h3>
+  <p>Choose the perfect size for your celebration. These are our standard cake sizes and approximate servings:</p>
+
+  <ul class="trust-list" style="margin-bottom:1rem;">
+    <li><strong>0.5 kg</strong> — serves 4–6 people</li>
+    <li><strong>1 kg</strong> — serves 8–12 people</li>
+    <li><strong>2 kg</strong> — serves 18–24 people</li>
+  </ul>
+
+  <h3>Flavours & Options</h3>
+  <ul class="trust-list" style="margin-bottom:1rem;">
+    <li>Egg or Eggless options available</li>
+    <li>Fresh cream or buttercream</li>
+    <li>Chocolate, Vanilla, Butterscotch</li>
+    <li>Custom designs available (send reference images)</li>
+  </ul>
+
+  <h3>Ordering Tips</h3>
+  <ul class="trust-list">
+    <li>For photo cakes or custom designs, please order at least 1 week in advance</li>
+    <li>All cakes are freshly prepared on the day of pickup/delivery</li>
+    <li>For allergies, mention details in the notes section</li>
+  </ul>
+</div>
+
     </section>
 
     <!-- Security / Trust -->
@@ -498,7 +524,10 @@
   </script>
 
   <script>
-  (function attachFormHandlers(){
+  /*(function attachFormHandlers(){
+   // Login + Signup code disabled
+})();
+*/
 
     const loginForm = document.getElementById("loginForm");
     const loginStatus = document.getElementById("loginStatus");
