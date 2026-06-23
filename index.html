@@ -118,7 +118,7 @@
       align-items:center;
       justify-content:center;
       min-height:220px;
-      height:220px; /* fixed height as requested */
+      height:220px;
     }
 
     .category-item-img{
@@ -130,7 +130,6 @@
       display:block;
     }
 
-    /* If a category has fewer items, center them nicely */
     .category-grid.few-items{
       justify-items:center;
     }
@@ -213,7 +212,6 @@
         A peek into some of our favourite creations. We also take fully custom orders.
       </p>
 
-      <!-- Container where categories will be injected -->
       <div id="galleryContainer" aria-live="polite"></div>
     </section>
 
@@ -370,23 +368,13 @@
   </div>
 
   <script>
-    // Smooth scroll helper
     function scrollToSection(id){
       const el = document.getElementById(id);
       if(el) el.scrollIntoView({behavior:'smooth'});
     }
 
-    // Set current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* ---------------------------
-       Category gallery renderer
-       - 4 images per row on desktop
-       - fixed height 220px (no stretching)
-       - categories grouped and displayed with big emoji headers
-       --------------------------- */
-
-    // Map category keys to emoji + readable title
     const CATEGORY_MAP = {
       birthday: {emoji:'🎂', title:'Birthday'},
       anniversary: {emoji:'💍', title:'Anniversary'},
@@ -398,7 +386,6 @@
       custom: {emoji:'✏️', title:'Custom Designs'}
     };
 
-    // Utility: safe text for caption
     function safeText(s){
       return (s === undefined || s === null) ? '' : String(s);
     }
@@ -412,7 +399,6 @@
         if(!res.ok) throw new Error('Failed to fetch gallery.json');
         const items = await res.json();
 
-        // Group by category
         const categories = {};
         items.forEach(it => {
           const cat = it.category || 'uncategorized';
@@ -420,36 +406,28 @@
           categories[cat].push(it);
         });
 
-        // Clear container
         container.innerHTML = '';
 
-        // Render each category in a block
         Object.keys(categories).forEach(catKey => {
           const itemsArr = categories[catKey];
 
-          // Create block
           const block = document.createElement('div');
           block.className = 'category-block';
 
-          // Title with emoji (big, bold)
           const meta = CATEGORY_MAP[catKey] || {emoji:'🎂', title: catKey.replace(/[_-]/g,' ')};
           const titleEl = document.createElement('div');
           titleEl.className = 'category-title';
           titleEl.innerHTML = `<span style="font-size:1.25rem">${meta.emoji}</span><span>${meta.title}</span>`;
           block.appendChild(titleEl);
 
-          // Divider
           const divider = document.createElement('div');
           divider.className = 'category-divider';
           block.appendChild(divider);
 
-          // Grid
           const grid = document.createElement('div');
           grid.className = 'category-grid';
-          // If fewer than 4 items, add a class to center them nicely
           if(itemsArr.length < 4) grid.classList.add('few-items');
 
-          // Create items
           itemsArr.forEach(item => {
             const itemWrap = document.createElement('div');
             itemWrap.className = 'category-item';
@@ -476,7 +454,6 @@
           container.appendChild(block);
         });
 
-        // If no categories found
         if(Object.keys(categories).length === 0){
           container.innerHTML = '<p style="color:#777;">No gallery items found.</p>';
         }
@@ -487,9 +464,6 @@
       }
     }
 
-    /* ---------------------------
-       Modal logic
-       --------------------------- */
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const modalCaption = document.getElementById('modalCaption');
@@ -502,7 +476,6 @@
       modalCaption.textContent = caption || '';
       modal.style.display = 'flex';
       modal.setAttribute('aria-hidden','false');
-      // prevent body scroll while modal open
       document.body.style.overflow = 'hidden';
     }
 
@@ -516,110 +489,101 @@
 
     modalClose.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
-      // close when clicking outside the image area
       if(e.target === modal) closeModal();
     });
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape' && modal.style.display === 'flex') closeModal();
     });
+  </script>
 
-    <script>
-/* ---------------------------
-   LOGIN + SIGNUP HANDLERS
-   --------------------------- */
-(function attachFormHandlers(){
+  <script>
+  (function attachFormHandlers(){
 
-  // LOGIN
-  const loginForm = document.getElementById("loginForm");
-  const loginStatus = document.getElementById("loginStatus");
+    const loginForm = document.getElementById("loginForm");
+    const loginStatus = document.getElementById("loginStatus");
 
-  loginForm.addEventListener("submit", function(e){
-    e.preventDefault();
-    const formData = new FormData(loginForm);
-    const email = formData.get("loginEmail");
-    const password = formData.get("loginPassword");
+    loginForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const formData = new FormData(loginForm);
+      const email = formData.get("loginEmail");
+      const password = formData.get("loginPassword");
 
-    if(!email || !password){
-      loginStatus.textContent = "Please enter your email and password.";
-      loginStatus.className = "status error";
-      return;
-    }
+      if(!email || !password){
+        loginStatus.textContent = "Please enter your email and password.";
+        loginStatus.className = "status error";
+        return;
+      }
 
-    loginStatus.textContent = "Demo login only. Connect this form to your authentication backend.";
-    loginStatus.className = "status success";
-  });
-
-  // SIGNUP
-  const signupForm = document.getElementById("signupForm");
-  const signupStatus = document.getElementById("signupStatus");
-
-  signupForm.addEventListener("submit", function(e){
-    e.preventDefault();
-    const formData = new FormData(signupForm);
-    const name = formData.get("signupName");
-    const email = formData.get("signupEmail");
-    const password = formData.get("signupPassword");
-
-    if(!name || !email || !password){
-      signupStatus.textContent = "Please fill in all fields.";
-      signupStatus.className = "status error";
-      return;
-    }
-
-    signupStatus.textContent = "Account created (demo). In production, securely store hashed passwords on the server.";
-    signupStatus.className = "status success";
-    signupForm.reset();
-  });
-
-})(); // END attachFormHandlers
-
-// Initialize gallery on load
-loadCategoryGallery();
-</script>
-
-<!-- EmailJS Library -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<!-- EmailJS Init -->
-<script>
-(function() {
-    emailjs.init("QUhzeSi-dESyLL0tv");
-})();
-</script>
-
-<!-- FINAL Guest Order Handler -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const guestOrderForm = document.getElementById("guestOrderForm");
-  const guestOrderStatus = document.getElementById("guestOrderStatus");
-
-  guestOrderForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.send("service_ggmkbor", "template_pn7i4o4", {
-      guestName: document.getElementById("guestName").value,
-      guestPhone: document.getElementById("guestPhone").value,
-      guestEmail: document.getElementById("guestEmail").value,
-      item: document.getElementById("item").value,
-      size: document.getElementById("size").value,
-      date: document.getElementById("date").value,
-      notes: document.getElementById("notes").value
-    })
-    .then(() => {
-      guestOrderStatus.textContent =
-        "Thank you! Your order has been submitted. We will contact you shortly.";
-      guestOrderStatus.className = "status success";
-      guestOrderForm.reset();
-    })
-    .catch(() => {
-      guestOrderStatus.textContent =
-        "There was an issue submitting your order. Please try again.";
-      guestOrderStatus.className = "status error";
+      loginStatus.textContent = "Demo login only. Connect this form to your authentication backend.";
+      loginStatus.className = "status success";
     });
-  });
 
-});
-</script>
+    const signupForm = document.getElementById("signupForm");
+    const signupStatus = document.getElementById("signupStatus");
+
+    signupForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const formData = new FormData(signupForm);
+      const name = formData.get("signupName");
+      const email = formData.get("signupEmail");
+      const password = formData.get("signupPassword");
+
+      if(!name || !email || !password){
+        signupStatus.textContent = "Please fill in all fields.";
+        signupStatus.className = "status error";
+        return;
+      }
+
+      signupStatus.textContent = "Account created (demo). In production, securely store hashed passwords on the server.";
+      signupStatus.className = "status success";
+      signupForm.reset();
+    });
+
+  })();
+
+  loadCategoryGallery();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+  (function() {
+      emailjs.init("QUhzeSi-dESyLL0tv");
+  })();
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const guestOrderForm = document.getElementById("guestOrderForm");
+    const guestOrderStatus = document.getElementById("guestOrderStatus");
+
+    guestOrderForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.send("service_ggmkbor", "template_pn7i4o4", {
+        guestName: document.getElementById("guestName").value,
+        guestPhone: document.getElementById("guestPhone").value,
+        guestEmail: document.getElementById("guestEmail").value,
+        item: document.getElementById("item").value,
+        size: document.getElementById("size").value,
+        date: document.getElementById("date").value,
+        notes: document.getElementById("notes").value
+      })
+      .then(() => {
+        guestOrderStatus.textContent =
+          "Thank you! Your order has been submitted. We will contact you shortly.";
+        guestOrderStatus.className = "status success";
+        guestOrderForm.reset();
+      })
+      .catch(() => {
+        guestOrderStatus.textContent =
+          "There was an issue submitting your order. Please try again.";
+        guestOrderStatus.className = "status error";
+      });
+    });
+
+  });
+  </script>
 </body>
 </html>
