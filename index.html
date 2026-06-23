@@ -257,9 +257,10 @@
                 <label for="size">Size</label>
                 <select id="size" name="size" required>
                   <option value="">Select size</option>
-                  <option value="0.5kg">0.5 kg</option>
-                  <option value="1kg">1 kg</option>
-                  <option value="2kg">2 kg</option>
+                  <option value="6-inch">6-inch ()</option>
+                  <option value="8-inch">8-inch</option>
+                  <option value="10-inch">10-inch</option>
+                  <option value="12-inch">12-inch</option>
                 </select>
               </div>
               <div>
@@ -316,14 +317,14 @@
     <section id="trust">
       <h2>Security &amp; Trust</h2>
       <p class="section-intro">
-        We take your privacy and payment security seriously so you can order with confidence.
+        We take your privacy and security seriously so you can order with confidence.
       </p>
       <div class="two-column">
         <div class="card">
           <h3>How we keep your data safe</h3>
           <ul class="trust-list">
             <li>All orders are processed over secure, encrypted HTTPS connections.</li>
-            <li>Payments are handled by PayPal — we never store card details.</li>
+            <li>Payments are handled during pick-up/delivery - — we never store card details.</li>
             <li>Passwords are stored using industry-standard hashing on our servers.</li>
             <li>We only collect the minimum information needed to fulfil your order.</li>
           </ul>
@@ -514,7 +515,7 @@
         return;
       }
 
-      loginStatus.textContent = "Demo login only. Connect this form to your authentication backend.";
+      loginStatus.textContent = "Demo login only";
       loginStatus.className = "status success";
     });
 
@@ -534,7 +535,7 @@
         return;
       }
 
-      signupStatus.textContent = "Account created (demo). In production, securely store hashed passwords on the server.";
+      signupStatus.textContent = "Account created";
       signupStatus.className = "status success";
       signupForm.reset();
     });
